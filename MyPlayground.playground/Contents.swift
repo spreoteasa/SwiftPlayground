@@ -1,4 +1,6 @@
 //import Foundation
+
+import Darwin
 //////
 //////let action = {
 //////    print("Am doing smth")
@@ -395,3 +397,43 @@ var o = Office(nrRooms: 4, cost: 12314, estateAgent: "Cechi-Cean")
 
 h.summary()
 o.summary()
+
+
+
+var myVar: Int? = 3
+
+if let unwrapped = myVar {
+    print("Run if myVar has a value inside")
+}
+
+//guard let unwrapped2 = myVar else {
+//    print("Run if myVar does not have a value inside")
+//    return
+//}
+func printSquare(of number: Int?) {
+    guard let number = number else {
+        print("Missing input")
+
+        // 1: We *must* exit the function here
+        return
+    }
+
+    // 2: `number` is still available outside of `guard`
+    print("\(number) x \(number) is \(number * number)")
+}
+
+printSquare(of:1234)
+
+import SwiftUI
+struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+            .padding()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
