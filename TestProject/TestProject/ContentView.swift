@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form{
-                Section{
+                Section(header: Text("Texts")){
                     Text("Texty")
                     Text("Texty")
                     Text("Texty")
@@ -33,19 +33,26 @@ struct ContentView: View {
         }
         
         Form{
-            Section{
+            Section(header: Text("Text Field")){
                 TextField("Your name here...",text: $name){
                     
                 }
             }
         }
-        
-        Form{
-            Picker("Choose your fighter",selection: $selectionCase){
-                ForEach(gionutzi, id: \.self){
-                    Text("\($0)")
+        NavigationView{
+            
+            Form{
+                Picker("Choose your fighter",selection: $selectionCase){
+                    ForEach(self.gionutzi, id: \.self){gion in
+                        Text(gion)
+                    }
+                    
+                }
+                ForEach(self.gionutzi, id: \.self){gion in
+                    Text(gion)
                 }
             }
+            .navigationTitle("'noata Chelutu")
         }
         Section{
             Button("Tap Count: \(tapCount)"){
