@@ -3,10 +3,11 @@ import SwiftUI
 struct ContentView: View {
     
     
-    @State var nrPeople: Int = 1
-    @State var price: Double = 0.0
-    @State var tips: Int = 0
-    @State var showAlert: Bool = false
+    @State private var nrPeople: Int = 1
+    @State private var price: Double = 0.0
+    @State private var tips: Int = 0
+    @State private var showAlert: Bool = false
+    @State private var change: Bool = false
     let tipPercentages = [0,5,10,15,25]
     var bill: Bill = Bill()
     var body: some View {
@@ -51,8 +52,9 @@ struct ContentView: View {
                 
                 
             }
-        }  
+        }
                     })
+        
         Button("Compute"){
             self.bill.setPrice(newP: self.price)
             self.bill.setPeople(newP: self.nrPeople + 2)
@@ -64,6 +66,16 @@ struct ContentView: View {
                               message: Text("\(self.bill.splitBill())"),
                               dismissButton: .default(Text("Mersi Gionutzule")))
         }
+        .tint(.mint)
+    
+        Button("ChangeView"){
+            print("Yolo Varule")
+            self.change = true
+        }.sheet(isPresented: $change){
+            EmptyView()
+        }
+//        Image(systemName: "heart.fill")
+        
     }
 }
 
