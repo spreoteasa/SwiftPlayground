@@ -12,15 +12,22 @@ struct ContentView: View {
         
         NavigationView{
             Form{
-                TextField("Insert how much the bill will cost",value: $price,
-                          format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                    .keyboardType(.decimalPad)
-                Picker("Number of people", selection: $nrPeople){
-                    ForEach(2..<100){
-                        Text("\($0)")
+                Section{
+                    Text("How much was the bill?")
+                    TextField("Insert how much the bill will cost",value: $price,
+                              format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                        .keyboardType(.decimalPad)
+                }
+                Section{
+                    Text("How many of people are splitting the bill?")
+                    Picker("Number of people", selection: $nrPeople){
+                        ForEach(2..<100){
+                            Text("\($0)")
+                        }
                     }
                 }
                 Section{
+                    Text("How much do you want to tip?")
                     Picker("Tip percentage", selection: $tips){
                         ForEach(tipPercentages, id: \.self){ tip in
                             Text(tip,format: .percent)
