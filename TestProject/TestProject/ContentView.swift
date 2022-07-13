@@ -2,18 +2,32 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var nrPeople: String = ""
-    @State var price: String = ""
-    @State var tips: String = ""
+    @State var nrPeople: Int = 1
+    @State var price: Double = 0.0
+    @State var tips: Int = 0
     @State var showAlert: Bool = false
+    let tipPercentages = [0,5,10,15,25]
     var bill: Bill = Bill()
     var body: some View {
         
         NavigationView{
             Form{
-                TextField("How many people are paying?", text: $nrPeople)
-                TextField("Insert how much the bill will cost",text: $price)
-                TextField("Insert how much you want to tip in %", text: $tips)
+                TextField("Insert how much the bill will cost",value: $price,
+                          format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    .keyboardType(.decimalPad)
+                Picker("Number of people", selection: $nrPeople){
+                    ForEach(2..<100){
+                        Text("\($0)")
+                    }
+                }
+                Section{
+                    Picker("Tip percentage", selection: $tips){
+                        ForEach(tipPercentages, id: \.self){ tip in
+                            Text(tip,format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
             }
             .navigationTitle("Split.io")
             .navigationBarTitleDisplayMode(.inline)
@@ -21,12 +35,9 @@ struct ContentView: View {
             
         }
         Button("Compute"){
-            let pr = Double(self.price) ?? 0.1
-            let pe = Int(self.nrPeople) ?? 1
-            let ci = Double(self.tips) ?? 0
-            self.bill.setPrice(newP: pr)
-            self.bill.setPeople(newP: pe)
-            self.bill.setCiubuc(newC: ci)
+            self.bill.setPrice(newP: self.price)
+            self.bill.setPeople(newP: self.nrPeople + 2)
+            self.bill.setCiubuc(newC: Double(self.tips))
             self.showAlert = true
         }
         .alert(isPresented: $showAlert){
