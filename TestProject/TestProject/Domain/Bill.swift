@@ -8,9 +8,9 @@
 import Foundation
 
 class Bill{
-    private let price: Double
-    private let people: Int
-    private let ciubuc: Double
+    private var price: Double
+    private var people: Int
+    private var ciubuc: Double
     
     init(price: Double, people: Int, ciubuc: Double){
         self.price = price
@@ -18,8 +18,13 @@ class Bill{
         self.ciubuc = ciubuc
     }
     
+    convenience init(){
+        self.init(price:0,people:1,ciubuc:0)
+      
+    }
+    
     func computeWithCiubuc() -> Double{
-        return price + (ciubuc * price)
+        return price + (ciubuc/100 * price)
     }
     
     func getCiubuc() -> Double{
@@ -34,7 +39,19 @@ class Bill{
         return people
     }
     
-    func splitBill() -> some Numeric{
+    func setPeople(newP: Int){
+        self.people = newP
+    }
+    
+    func setPrice(newP: Double){
+        self.price = newP
+    }
+    
+    func setCiubuc(newC: Double){
+        self.ciubuc = newC
+    }
+    
+    func splitBill() -> Double{
         return computeWithCiubuc() / Double(self.people)
     }
 }
