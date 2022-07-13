@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    
     @State var nrPeople: Int = 1
     @State var price: Double = 0.0
     @State var tips: Int = 0
@@ -9,6 +10,13 @@ struct ContentView: View {
     let tipPercentages = [0,5,10,15,25]
     var bill: Bill = Bill()
     var body: some View {
+        Color.purple
+            .ignoresSafeArea() // Ignore just for the color
+                .overlay(
+                    VStack(spacing: 20) {
+                        Text("Split.io").font(.largeTitle)
+                        Text("A simple bill splitter").font(.title).foregroundColor(.white)
+                
         
         NavigationView{
             Form{
@@ -40,11 +48,15 @@ struct ContentView: View {
                     Text("How much do you want to tip?")
                 }
             }
-            .navigationTitle("Split.io")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("Split.io")
+//            .navigationBarTitleDisplayMode(.inline)
             
             
         }
+        
+        
+        
+                    })
         Button("Compute"){
             self.bill.setPrice(newP: self.price)
             self.bill.setPeople(newP: self.nrPeople + 2)
@@ -56,7 +68,6 @@ struct ContentView: View {
                               message: Text("\(self.bill.splitBill())"),
                               dismissButton: .default(Text("Mersi Gionutzule")))
         }
-        
     }
 }
 
