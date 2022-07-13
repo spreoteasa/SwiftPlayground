@@ -37,6 +37,7 @@ struct ContentView: View {
                 } header: {
                     Text("How many of people are splitting the bill?")
                 }
+               
                 Section{
                     Picker("Tip percentage", selection: $tips){
                         ForEach(tipPercentages, id: \.self){ tip in
@@ -47,15 +48,10 @@ struct ContentView: View {
                 } header: {
                     Text("How much do you want to tip?")
                 }
+                
+                
             }
-//            .navigationTitle("Split.io")
-//            .navigationBarTitleDisplayMode(.inline)
-            
-            
-        }
-        
-        
-        
+        }  
                     })
         Button("Compute"){
             self.bill.setPrice(newP: self.price)
