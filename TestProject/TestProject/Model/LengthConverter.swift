@@ -12,6 +12,12 @@ class LengthConverter{
     var initialLengthType: LengthType = .centimeter
     var finalLengthType: LengthType = .centimeter
     
+    init(){
+        self.length = 0
+        self.initialLengthType = .centimeter
+        self.finalLengthType = .centimeter
+    }
+    
     func compute() -> String {
         var lengthInCemtimeters = 0
         
