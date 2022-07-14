@@ -17,6 +17,13 @@ struct ContentView: View {
                     VStack(spacing: 20) {
                         Text("Split.io").font(.largeTitle)
                         Text("A simple bill splitter").font(.title).foregroundColor(.white)
+                        Button("ChangeView"){
+                            print("Yolo Varule")
+                            self.change = true
+                        }.sheet(isPresented: $change){
+                            EmptyView()
+                        }
+
                 
         
         NavigationView{
@@ -68,13 +75,7 @@ struct ContentView: View {
         }
         .tint(.mint)
     
-        Button("ChangeView"){
-            print("Yolo Varule")
-            self.change = true
-        }.sheet(isPresented: $change){
-            EmptyView()
-        }
-//        Image(systemName: "heart.fill")
+        //        Image(systemName: "heart.fill")
         
     }
 }
