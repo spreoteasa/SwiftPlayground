@@ -45,11 +45,6 @@ struct TimeConversionView: View {
                 }
                 
                 Button("Convert"){
-                    HStack {
-                            Spacer()
-                            Text("Convert")
-                            Spacer()
-                          }
                     self.timeConverter.timeValue = self.timeValue
                     self.timeConverter.initialState = self.initialTimeType
                     self.timeConverter.finalState = self.finalTimeType
@@ -64,11 +59,6 @@ struct TimeConversionView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
-    
-//    let sampleClosure = compute()
-    
-   
 }
 
 struct TimeConversionView_Previews: PreviewProvider {
