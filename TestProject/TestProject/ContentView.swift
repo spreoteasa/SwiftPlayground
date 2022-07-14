@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var goToTimeConversion: Bool = false
+    @State private var goToLengthConversion: Bool = false
     var body: some View {
             NavigationView{
                     VStack(alignment: .center){
@@ -27,12 +28,16 @@ struct ContentView: View {
                         
                         Button{
                             print("Clicked2")
+                            self.goToLengthConversion = true
                         } label:{
                             Image(systemName: "ruler")
                         }
                         .frame(maxWidth: .infinity)
                         .buttonStyle(.borderedProminent)
                         .tint(.mint)
+                        .sheet(isPresented: $goToLengthConversion){
+                            LengthConversionView()
+                        }
                         Button{
                             print("Clicked3")
                         }label:{
