@@ -55,10 +55,11 @@ struct ContentView: View {
                     }.frame(maxWidth: .infinity)
                     
                 
-                    .background(Color.mint)
+                    
                     .lineSpacing(11.0)
                     .navigationTitle(Text("Convert.io"))
                     .navigationBarTitleDisplayMode(.inline)
+                    .background(Color.mint)
             }
             
         
