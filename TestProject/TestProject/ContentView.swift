@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var goToTimeConversion: Bool = false
     @State private var goToLengthConversion: Bool = false
+    @State private var goToTemperatureConversion: Bool = false
     var body: some View {
             NavigationView{
                     VStack(alignment: .center){
@@ -40,12 +41,16 @@ struct ContentView: View {
                         }
                         Button{
                             print("Clicked3")
+                            self.goToTemperatureConversion = true
                         }label:{
                             Image(systemName: "sun.max")
                         }
                         .frame(maxWidth: .infinity)
                         .buttonStyle(.borderedProminent)
                         .tint(.mint)
+                        .sheet(isPresented: $goToTemperatureConversion){
+                            TemperatureConversionView()
+                        }
                        
                     }.frame(maxWidth: .infinity)
                     

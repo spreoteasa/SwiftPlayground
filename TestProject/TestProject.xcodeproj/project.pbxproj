@@ -13,6 +13,9 @@
 		F907FC95288038C4000D55E4 /* LengthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FC94288038C4000D55E4 /* LengthConverter.swift */; };
 		F907FC97288038E2000D55E4 /* LengthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FC96288038E2000D55E4 /* LengthTypes.swift */; };
 		F907FC9B28803E78000D55E4 /* LengthConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FC9A28803E78000D55E4 /* LengthConversionView.swift */; };
+		F907FC9E288041BC000D55E4 /* TemperatureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FC9D288041BC000D55E4 /* TemperatureTypes.swift */; };
+		F907FCA02880420A000D55E4 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FC9F2880420A000D55E4 /* TemperatureConverter.swift */; };
+		F907FCA228804400000D55E4 /* TemperatureConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FCA128804400000D55E4 /* TemperatureConversionView.swift */; };
 		F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5A287D5C470045F788 /* TestProjectApp.swift */; };
 		F9751A5D287D5C470045F788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5C287D5C470045F788 /* ContentView.swift */; };
 		F9751A5F287D5C4D0045F788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9751A5E287D5C4D0045F788 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		F907FC94288038C4000D55E4 /* LengthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConverter.swift; sourceTree = "<group>"; };
 		F907FC96288038E2000D55E4 /* LengthTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthTypes.swift; sourceTree = "<group>"; };
 		F907FC9A28803E78000D55E4 /* LengthConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConversionView.swift; sourceTree = "<group>"; };
+		F907FC9D288041BC000D55E4 /* TemperatureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTypes.swift; sourceTree = "<group>"; };
+		F907FC9F2880420A000D55E4 /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
+		F907FCA128804400000D55E4 /* TemperatureConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConversionView.swift; sourceTree = "<group>"; };
 		F9751A57287D5C470045F788 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A5A287D5C470045F788 /* TestProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectApp.swift; sourceTree = "<group>"; };
 		F9751A5C287D5C470045F788 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 				F907FC9828803CC8000D55E4 /* Enums */,
 				F907FC8E28802681000D55E4 /* TimeConverter.swift */,
 				F907FC94288038C4000D55E4 /* LengthConverter.swift */,
+				F907FC9F2880420A000D55E4 /* TemperatureConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,6 +105,7 @@
 			children = (
 				F907FC96288038E2000D55E4 /* LengthTypes.swift */,
 				F907FC9028802695000D55E4 /* TimeTypes.swift */,
+				F907FC9D288041BC000D55E4 /* TemperatureTypes.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				F9751A60287D5C4D0045F788 /* Preview Content */,
 				F907FC9228802837000D55E4 /* TimeConversionView.swift */,
 				F907FC9A28803E78000D55E4 /* LengthConversionView.swift */,
+				F907FCA128804400000D55E4 /* TemperatureConversionView.swift */,
 			);
 			path = TestProject;
 			sourceTree = "<group>";
@@ -296,8 +305,11 @@
 				F9751A5D287D5C470045F788 /* ContentView.swift in Sources */,
 				F907FC9128802695000D55E4 /* TimeTypes.swift in Sources */,
 				F907FC9328802837000D55E4 /* TimeConversionView.swift in Sources */,
+				F907FCA02880420A000D55E4 /* TemperatureConverter.swift in Sources */,
 				F907FC97288038E2000D55E4 /* LengthTypes.swift in Sources */,
 				F907FC95288038C4000D55E4 /* LengthConverter.swift in Sources */,
+				F907FC9E288041BC000D55E4 /* TemperatureTypes.swift in Sources */,
+				F907FCA228804400000D55E4 /* TemperatureConversionView.swift in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
