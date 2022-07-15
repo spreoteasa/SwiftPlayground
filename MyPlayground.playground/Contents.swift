@@ -346,13 +346,13 @@ import Darwin
 //
 //print(([1,2] + [-1,0]).sorted() )
 //
-//func &(x: String, y: String){
-//    print("\(x) ii langa \(y)")
-//}
-//
-//print("ionescu" & "popescu")
-//
-//
+func &(x: String, y: String){
+    print("\(x) ii langa \(y)")
+}
+
+print("ionescu" & "popescu")
+
+
 
 
 
@@ -403,7 +403,7 @@ o.summary()
 var myVar: Int? = 3
 
 if let unwrapped = myVar {
-    print("Run if myVar has a value inside")
+    print("Run if myVar has a value inside \(unwrapped)")
 }
 
 //guard let unwrapped2 = myVar else {
