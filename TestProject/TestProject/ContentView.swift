@@ -45,6 +45,7 @@ struct ContentView: View {
                         } label:{
                             Image(countries[number])
                                 .renderingMode(.original)
+                                .resizable()
                                 .clipShape(Capsule())
                                 .shadow(radius:5)
                         }
@@ -65,11 +66,12 @@ struct ContentView: View {
                 Spacer()
             }.padding()
             
-            .alert(scoreTitle, isPresented: $showScore){
+                .alert(scoreTitle, isPresented: $showScore ){
                 Button("OK", action: askQuestion)
             } message: {
                 Text("Keep Going?")
             }
+            
         }
     }
     func flagTapped(_ chosenFlag: Int) {
