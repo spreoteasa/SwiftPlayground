@@ -8,67 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var goToTimeConversion: Bool = false
-    @State private var goToLengthConversion: Bool = false
-    @State private var goToTemperatureConversion: Bool = false
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer = Int.random(in: 0...2)
     var body: some View {
-            NavigationView{
-                    VStack(alignment: .center){
-                        Button{
-                            print("Clicked")
-                            self.goToTimeConversion = true
-                        } label:{
-                            Image(systemName: "timer")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .buttonStyle(.borderedProminent)
-                        .tint(.mint)
-                        .sheet(isPresented: $goToTimeConversion){
-                            TimeConversionView()
-                        }
-                        
-                        Button{
-                            print("Clicked2")
-                            self.goToLengthConversion = true
-                        } label:{
-                            Image(systemName: "ruler")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .buttonStyle(.borderedProminent)
-                        .tint(.mint)
-                        .sheet(isPresented: $goToLengthConversion){
-                            LengthConversionView()
-                        }
-                        Button{
-                            print("Clicked3")
-                            self.goToTemperatureConversion = true
-                        }label:{
-                            Image(systemName: "sun.max")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .buttonStyle(.borderedProminent)
-                        .tint(.mint)
-                        .sheet(isPresented: $goToTemperatureConversion){
-                            TemperatureConversionView()
-                        }
-                       
-                    }.frame(maxWidth: .infinity)
-                    
-                
-                    
-                    .lineSpacing(11.0)
-                    .navigationTitle(Text("Convert.io"))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .background(Color.mint)
+        VStack{
+            Text("Tap the flag of:")
+            Text(countries[correctAnswer])
+            ForEach(0..<3){number in
+                Button{
+                    //Something happened here
+                } label:{
+                    Image(countries[number])
+                        .renderingMode(.original)
+                }
             }
-            
-        
-        
-        //Time, Length, Temperature
-        
-
+        }
     }
-        
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
