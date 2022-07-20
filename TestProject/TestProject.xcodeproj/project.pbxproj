@@ -14,6 +14,7 @@
 		F9751A6C287D5C4E0045F788 /* TestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A6B287D5C4E0045F788 /* TestProjectTests.swift */; };
 		F9751A76287D5C4E0045F788 /* TestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */; };
 		F9751A78287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */; };
+		F999C05E2888245400857646 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F999C05D2888245400857646 /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F9751A71287D5C4E0045F788 /* TestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITests.swift; sourceTree = "<group>"; };
 		F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F999C05D2888245400857646 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SleepCalculator.mlmodel; path = ../../../../Desktop/SleepCalculator.mlmodel/Models/SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		F9751A59287D5C470045F788 /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				F999C05D2888245400857646 /* SleepCalculator.mlmodel */,
 				F9751A5A287D5C470045F788 /* TestProjectApp.swift */,
 				F9751A5C287D5C470045F788 /* ContentView.swift */,
 				F9751A5E287D5C4D0045F788 /* Assets.xcassets */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9751A5D287D5C470045F788 /* ContentView.swift in Sources */,
+				F999C05E2888245400857646 /* SleepCalculator.mlmodel in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
