@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var showScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    @State private var toggledVariable = false
     var body: some View {
         ZStack{
             //            LinearGradient(gradient: Gradient(colors: [.blue, Color(red: 0.5, green: 1, blue: 0.8)]), startPoint: .top, endPoint: .bottom)
@@ -41,6 +42,8 @@ struct ContentView: View {
 //                        Spacer()
                         Button{
                             print("The flag of \(countries[number]) was clicked")
+                            self.toggledVariable.toggle()
+                            print(toggledVariable)
                             flagTapped(number)
                         } label:{
                             Image(countries[number])
@@ -56,7 +59,7 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
-                .background(.regularMaterial)
+                .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 Spacer()
                 Spacer()
@@ -82,6 +85,7 @@ struct ContentView: View {
         else {
             print("Wrong")
         }
+//        print(type(of: self.body))
         self.showScore = true
     }
     
