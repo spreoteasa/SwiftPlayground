@@ -15,35 +15,33 @@ struct ContentView: View {
     @State private var showingAlert: Bool = false
     @State private var alertMessage: String = "Sorry, there was a problem calculating your bedtime."
     var body: some View {
-        VStack {
-            
-            Text("When do you want to wake up?")
-                .font(.headline)
-            
-            DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                .labelsHidden()
-            
-            Text("Desired ammount of sleep")
-                .font(.headline)
-            Stepper("\(sleepAmmount.formatted()) hours", value: $sleepAmmount, in: 4...12)
-            
-            Text("Daily coffee intake")
-            Stepper(coffeeAmmount == 1 ? "1 cup" : "\(coffeeAmmount) cups", value: $coffeeAmmount, in: 1...20)
-            
-            Button("Calculate", action: calculateBedTime)
-                .alert(alertTitle, isPresented: $showingAlert){
-                    Button("OK") { }
-                } message: {
-                    Text(alertMessage)
-                }
-            
+        NavigationView{
+            VStack {
+                
+                Text("When do you want to wake up?")
+                    .font(.headline)
+                
+                DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                    .labelsHidden()
+                
+                Text("Desired ammount of sleep")
+                    .font(.headline)
+                Stepper("\(sleepAmmount.formatted()) hours", value: $sleepAmmount, in: 4...12)
+                
+                Text("Daily coffee intake")
+                Stepper(coffeeAmmount == 1 ? "1 cup" : "\(coffeeAmmount) cups", value: $coffeeAmmount, in: 1...20)
+                
+             
+                
+            }
+            .navigationTitle("BetterSleep")
+            .toolbar {
+                Button("Calculate", action: calculateBedTime)
+            }
+            .navigationBarHidden(false)
+            .navigationBarTitleDisplayMode(.inline)
         }
-//        .navigationTitle("BetterSleep")
-//        .toolbar {
-//            Button("Calculate", action: calculateBedTime)
-//        }
-//        .navigationBarHidden(false)
-//        .navigationBarTitleDisplayMode(.inline)
+
        
         
     }
