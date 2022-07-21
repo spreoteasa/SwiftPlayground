@@ -16,12 +16,16 @@ struct ContentView: View {
             List{
                 Section {
                     TextField("Insert your word", text: $newWord)
+                        .textInputAutocapitalization(.never)
                         .onSubmit(addNewWord)
                 }
                 
                 Section {
-                    ForEach(usedWords, id:\.self) {
-                        Text($0)
+                    ForEach(usedWords, id:\.self) { word in
+                        HStack {
+                            Image(systemName: "\(word.count).circle")
+                            Text(word)
+                        }
                     }
                 }
             }
@@ -32,7 +36,9 @@ struct ContentView: View {
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count > 0 else { return } //checking if the word is empty
-        usedWords.insert(answer, at: 0)
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+        }
         newWord = ""
     }
     
