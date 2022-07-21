@@ -14,41 +14,40 @@ struct ContentView: View {
     @State private var alertTitle: String = "Error"
     @State private var showingAlert: Bool = false
     @State private var alertMessage: String = "Sorry, there was a problem calculating your bedtime."
-    var body: some View {
-        NavigationView{
-            VStack {
-                
-                Text("When do you want to wake up?")
-                    .font(.headline)
-                
-                DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                
-                Text("Desired ammount of sleep")
-                    .font(.headline)
-                Stepper("\(sleepAmmount.formatted()) hours", value: $sleepAmmount, in: 4...12)
-                
-                Text("Daily coffee intake")
-                Stepper(coffeeAmmount == 1 ? "1 cup" : "\(coffeeAmmount) cups", value: $coffeeAmmount, in: 1...20)
-                
-             
-                
+    
+    var calculateButton: some View {
+        Button("Calculate", action: calculateBedTime)
+            .alert(isPresented: $showingAlert){
+                Alert(title: Text(self.alertTitle), message: Text(self.alertMessage), dismissButton: .default(Text("OK")))
             }
-            .navigationTitle("BetterSleep")
-            .toolbar {
-                Button("Calculate", action: calculateBedTime)
-            }
-            .navigationBarHidden(false)
-            .navigationBarTitleDisplayMode(.inline)
-        }
-
-       
-        
     }
     
+    var entryInformation: some View {
+        return VStack {
+            
+            Text("When do you want to wake up?")
+                .font(.headline)
+            DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                .labelsHidden()
+            Text("Desired ammount of sleep")
+                .font(.headline)
+            Stepper("\(sleepAmmount.formatted()) hours", value: $sleepAmmount, in: 4...12)
+            Text("Daily coffee intake")
+            Stepper(coffeeAmmount == 1 ? "1 cup" : "\(coffeeAmmount) cups", value: $coffeeAmmount, in: 1...20)
+        }
+    }
     
-    
-    
+    var body: some View {
+        NavigationView {
+            entryInformation
+                .navigationTitle("BetterSleep")
+                .toolbar {
+                    calculateButton
+                }
+                .navigationBarHidden(false)
+                .navigationBarTitleDisplayMode(.inline)
+        }
+    }
     
     func calculateBedTime() {
         do{
@@ -64,6 +63,7 @@ struct ContentView: View {
             alertTitle = "Your ideal bedtime is…"
             alertMessage = sleeptime.formatted(date: .omitted, time: .shortened)
             showingAlert = true
+            print(alertMessage)
         } catch {
             print("There was an oopsie")
             showingAlert = true
