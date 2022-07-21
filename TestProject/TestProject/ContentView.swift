@@ -8,8 +8,43 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord = ""
     var body: some View {
-        Text("Hehe")
+        NavigationView {
+            List{
+                Section {
+                    TextField("Insert your word", text: $newWord)
+                        .onSubmit(addNewWord)
+                }
+                
+                Section {
+                    ForEach(usedWords, id:\.self) {
+                        Text($0)
+                    }
+                }
+            }
+        }
+        .navigationTitle(rootWord)
+    }
+    
+    func addNewWord() {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        guard answer.count > 0 else { return } //checking if the word is empty
+        usedWords.insert(answer, at: 0)
+        newWord = ""
+    }
+    
+    func spellChecker(word: String) -> Bool {
+        //create a checker
+        let checker = UITextChecker()
+        //get the range of the word
+        let range = NSRange(location: 0, length: word.utf16.count)
+        //check the provided word
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        //return wether or not the user comitted an oopsie
+        return misspelledRange.location == NSNotFound
     }
 }
 
