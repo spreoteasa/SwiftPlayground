@@ -84,7 +84,7 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
-        self.scorePerRoot[rootWord]! += 1
+        self.scorePerRoot[rootWord]! += answer.count + usedWords.count - 1
         newWord = ""
     }
     
