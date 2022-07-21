@@ -50,7 +50,7 @@ struct ContentView: View {
     }
     
     func insertWordConditions(word: String) -> Bool {
-        return spellChecker(word: word) == true && word.count > 0 && !usedWords.contains(word) && isPossible(word: word)
+        return spellChecker(word: word) == true && word.count > 0 && !usedWords.contains(word) && isPossible(word: word) && word != rootWord
     }
     
     func isPossible(word: String) -> Bool {
@@ -101,6 +101,7 @@ struct ContentView: View {
     }
     
     func startGame() {
+        restart()
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
