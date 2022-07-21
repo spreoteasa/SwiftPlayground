@@ -23,16 +23,20 @@ struct ContentView: View {
     }
     
     var entryInformation: some View {
-        return VStack {
+        return Form {
             
             Text("When do you want to wake up?")
                 .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .center)
             DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                 .labelsHidden()
+                .frame(maxWidth: .infinity, alignment: .center)
             Text("Desired ammount of sleep")
                 .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .center)
             Stepper("\(sleepAmmount.formatted()) hours", value: $sleepAmmount, in: 4...12)
             Text("Daily coffee intake")
+                .frame(maxWidth: .infinity, alignment: .center)
             Stepper(coffeeAmmount == 1 ? "1 cup" : "\(coffeeAmmount) cups", value: $coffeeAmmount, in: 1...20)
         }
     }
