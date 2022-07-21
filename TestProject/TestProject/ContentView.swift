@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingMessage = false
+    @State private var scorePerRoot = [String:Int]()
     var body: some View {
         NavigationView {
             List{
@@ -34,6 +35,13 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "\(word.count).circle")
                             Text(word)
+                        }
+                    }
+                }
+                Section {
+                    ForEach(scorePerRoot.sorted(by: >), id: \.key) { key, value in
+                        Section(header: Text(key)) {
+                            Text("\(value)")
                         }
                     }
                 }
@@ -76,6 +84,7 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
+        self.scorePerRoot[rootWord]! += 1
         newWord = ""
     }
     
@@ -106,6 +115,9 @@ struct ContentView: View {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "sternocleidomastoidian"
+                if self.scorePerRoot[rootWord] == nil {
+                    self.scorePerRoot[rootWord] = 0
+                }
                 
                 return
             }
