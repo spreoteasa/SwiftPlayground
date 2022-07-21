@@ -40,12 +40,17 @@ struct ContentView: View {
             }
             .navigationTitle(rootWord)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem {
+                    Button("Start Game", action: startGame)
+                }
+            }
         }
         
     }
     
     func insertWordConditions(word: String) -> Bool {
-        return spellChecker(word: word) == true && word.count > 0 && !usedWords.contains(word)
+        return spellChecker(word: word) == true && word.count > 0 && !usedWords.contains(word) && isPossible(word: word)
     }
     
     func isPossible(word: String) -> Bool {
@@ -87,6 +92,12 @@ struct ContentView: View {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         //return wether or not the user comitted an oopsie
         return misspelledRange.location == NSNotFound
+    }
+    
+    func restart() {
+        self.usedWords = []
+        self.rootWord = ""
+        self.newWord = ""
     }
     
     func startGame() {
