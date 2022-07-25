@@ -19,6 +19,7 @@
 		F9E9C143288EAA44003E0A06 /* FlagCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */; };
 		F9E9C145288EAC76003E0A06 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C144288EAC76003E0A06 /* ButtonView.swift */; };
 		F9E9C147288EB950003E0A06 /* SwitzerlandFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */; };
+		F9E9C149288EC193003E0A06 /* GreeceFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagCreatorView.swift; sourceTree = "<group>"; };
 		F9E9C144288EAC76003E0A06 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitzerlandFlagView.swift; sourceTree = "<group>"; };
+		F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreeceFlagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */,
 				F9E9C144288EAC76003E0A06 /* ButtonView.swift */,
 				F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */,
+				F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				F9E9C143288EAA44003E0A06 /* FlagCreatorView.swift in Sources */,
 				F9E9C145288EAC76003E0A06 /* ButtonView.swift in Sources */,
 				F9E9C141288EA7A3003E0A06 /* AmericaFlagView.swift in Sources */,
+				F9E9C149288EC193003E0A06 /* GreeceFlagView.swift in Sources */,
 				F9E9C147288EB950003E0A06 /* SwitzerlandFlagView.swift in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
 			);
