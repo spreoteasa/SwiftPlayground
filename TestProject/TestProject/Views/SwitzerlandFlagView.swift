@@ -8,6 +8,17 @@
 import SwiftUI
 
 struct SwitzerlandFlagView: View {
+    
+    var duplicatedSection = VStack(spacing: 0){
+        Color.red
+        VStack(spacing: 0){
+            Color.red
+            Color.white
+            Color.red
+        }
+        Color.red
+    }
+    
     var body: some View {
         HStack(spacing: 0){
             HStack{
@@ -27,15 +38,7 @@ struct SwitzerlandFlagView: View {
                     Color.red
                 }
             }
-            VStack(spacing: 0){
-                Color.red
-                VStack(spacing: 0){
-                    Color.red
-                    Color.white
-                    Color.red
-                }
-                Color.red
-            }
+            duplicatedSection
             VStack{
                 VStack(spacing: 0){
                     Color.red
@@ -59,15 +62,7 @@ struct SwitzerlandFlagView: View {
                     Color.red
                 }
             }
-            VStack(spacing: 0){
-                Color.red
-                VStack(spacing: 0){
-                    Color.red
-                    Color.white
-                    Color.red
-                }
-                Color.red
-            }
+            duplicatedSection
             HStack{
                 VStack(spacing: 0){
                     Color.red
