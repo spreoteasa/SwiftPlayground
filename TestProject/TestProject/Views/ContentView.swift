@@ -10,7 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var numbers = [Int]()
     @State private var currentNumber = 0
-    var body: some View {
+    @State private var animationAmount = 0.0
+    
+    var editableView: some View {
         NavigationView{
             VStack {
                 List {
@@ -31,6 +33,19 @@ struct ContentView: View {
                 EditButton()
             }
         }
+    }
+    
+    var body: some View {
+        Button("Tap me") {
+            withAnimation {
+                animationAmount += 360
+            }
+        }
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 1, z: 0))
     }
     
     func removeRows(at offsets: IndexSet) {
