@@ -10,9 +10,9 @@ import SwiftUI
 struct AmericaFlagView: View {
     var body: some View {
         HStack(spacing: 0){
-            VStack {
+            VStack(spacing: 0) {
                 Color.blue
-                VStack{
+                VStack(spacing: 0){
                     ForEach(0..<10) {
                         if $0%2 == 0 {
                             Color.white
@@ -22,7 +22,7 @@ struct AmericaFlagView: View {
                     }
                 }
             }
-            VStack{
+            VStack(spacing: 0){
                 
                 ForEach(0..<20) {
                     if $0%2 == 0 {

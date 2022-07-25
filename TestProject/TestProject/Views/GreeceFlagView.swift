@@ -8,39 +8,32 @@
 import SwiftUI
 
 struct GreeceFlagView: View {
+    var twoBlueWhiteTwoBlueVStack = VStack(spacing: 0){
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+        Color.white
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+    }
+    
+    var blueWhiteBlueHStack = HStack(spacing: 0){
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+        Color.white
+        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
+    }
+    
+    
     var body: some View {
         VStack(spacing: 0){
             HStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    VStack(spacing: 0){
-                        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        Color.white
-                        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                    }
+                    twoBlueWhiteTwoBlueVStack
                     VStack(spacing: 0) {
-                        HStack(spacing: 0){
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                            Color.white
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        }
-                        HStack(spacing: 0){
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                            Color.white
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        }
+                        blueWhiteBlueHStack
+                        blueWhiteBlueHStack
                         Color.white
-                        HStack(spacing: 0){
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                            Color.white
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        }
-                        HStack(spacing: 0){
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                            Color.white
-                            Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
-                        }
+                        blueWhiteBlueHStack
+                        blueWhiteBlueHStack
                     }
                     VStack(spacing: 0){
                         Color(red: 0.05, green: 0.3, blue: 0.68)//RGB: 13,94,175.
@@ -67,6 +60,8 @@ struct GreeceFlagView: View {
         }
         .frame( width: 300, height: 200)
     }
+    
+    
 }
 
 struct GreeceFlagView_Previews: PreviewProvider {
