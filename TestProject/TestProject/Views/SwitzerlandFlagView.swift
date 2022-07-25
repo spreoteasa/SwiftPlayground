@@ -17,7 +17,10 @@ struct SwitzerlandFlagView: View {
                         Color.red
                         HStack(spacing: 0){
                             Color.red
-                            Color.white
+                            HStack(spacing: 0){
+                                Color.red
+                                Color.white
+                            }
                         }
                         Color.red
                     }
@@ -37,14 +40,20 @@ struct SwitzerlandFlagView: View {
                 VStack(spacing: 0){
                     Color.red
                     VStack(spacing: 0) {
-                    Color.red
-                        Color.white
+                        Color.red
+                        VStack(spacing: 0) {
+                            Color.red
+                            Color.white
+                        }
                     }
                 }
                 Color.white
                 VStack(spacing: 0){
                     VStack(spacing: 0) {
-                    Color.white
+                        VStack(spacing: 0) {
+                            Color.white
+                            Color.red
+                        }
                         Color.red
                     }
                     Color.red
@@ -65,7 +74,11 @@ struct SwitzerlandFlagView: View {
                     VStack(spacing: 0){
                         Color.red
                         HStack(spacing: 0){
-                            Color.white
+                            HStack(spacing: 0){
+                                Color.white
+                                Color.red
+                                
+                            }
                             Color.red
                         }
                         Color.red
