@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct DesignerView: View {
-//    @Binding var currentColor: Color
-    @EnvironmentObject private var currentColor:CurrentColor
+    @Binding var currentColor:Color
     var body: some View {
         ZStack {
             MainBackground()
@@ -18,7 +17,7 @@ struct DesignerView: View {
                 ZStack{
                     
                     BackgroundRectangle()
-                    PickerSection().environmentObject(currentColor)
+                    PickerSection(currentColor: $currentColor)
                 }
                 CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
                 AddSubsectionSection()
@@ -29,8 +28,8 @@ struct DesignerView: View {
 }
 
 struct PickerSection: View {
-//    @Binding var currentColor: Color
-//    @EnvironmentObject private var currentColor: CurrentColor
+    @Binding var currentColor: Color
+    //    @EnvironmentObject private var currentColor: CurrentColor
     var body: some View {
         HStack{
             
@@ -38,7 +37,13 @@ struct PickerSection: View {
             VStack{
                 Text("PICK COLOR")
                     .fontWeight(.semibold)
-                ColorPickerButton()
+                ColorPicker("Color picker", selection: $currentColor)
+                    .frame(width: 100, height: 25)
+                //            .background(currentColor.currentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 2))
+                    .labelsHidden()
+                
+                
             }
             Spacer()
             VStack{
@@ -74,15 +79,15 @@ struct EmblemPickerButton: View {
 
 
 struct ColorPickerButton: View {
-//    @State var currentColor:Color = .green
-    @EnvironmentObject private var currentColor: CurrentColor
+    //    @State var currentColor:Color = .green
+    @EnvironmentObject private var currentColor: ViewModel
     var body: some View {
         ColorPicker("Color picker", selection: $currentColor.currentColor)
             .frame(width: 100, height: 25)
-//            .background(currentColor.currentColor)
+        //            .background(currentColor.currentColor)
             .clipShape(RoundedRectangle(cornerRadius: 2))
             .labelsHidden()
-            
+        
     }
 }
 
@@ -121,7 +126,7 @@ struct AddSubsectionSection: View {
                 Text("Add Stripe")
                     .foregroundColor(Color("BlueFontColor"))
                     .fontWeight(.bold)
-                    
+                
                 HStack{
                     Spacer()
                     Button { }
@@ -131,7 +136,7 @@ struct AddSubsectionSection: View {
                         .frame(width:20,height:20)
                         .foregroundColor(Color("BlueFontColor"))
                         .rotationEffect(.degrees(90))
-                        
+                    
                     
                 }
                     Spacer()
@@ -147,7 +152,7 @@ struct AddSubsectionSection: View {
                         .resizable()
                         .frame(width:20,height:20)
                         .foregroundColor(Color("BlueFontColor"))
-                        
+                    
                 }
                     Spacer()
                 }.frame(width:300)
@@ -174,6 +179,6 @@ struct MainBackground: View {
 
 struct DesignerView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignerView()
+        DesignerView(currentColor: .constant(.green))
     }
 }

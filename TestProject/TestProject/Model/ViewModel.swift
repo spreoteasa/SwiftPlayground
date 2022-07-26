@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-class CurrentColor: ObservableObject {
+class ViewModel: ObservableObject {
     @Published var currentColor = Color.green
 }

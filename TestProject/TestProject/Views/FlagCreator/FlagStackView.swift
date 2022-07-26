@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FlagStackView: View {
+    @ObservedObject var viewModel: ViewModel
     var body: some View {
         VStack(alignment: .trailing, spacing: 40) {
             HStack{
@@ -16,12 +17,18 @@ struct FlagStackView: View {
             }
             HStack{
                 Spacer()
-                FlagCreationZoneView()
+               flagView
                 Spacer()
             }
             Spacer()
         }
         .frame(height: 300)
+    }
+    
+    var flagView: some View {
+         Rectangle()
+            .frame(width: 300, height: 150, alignment: .center)
+            .foregroundColor(viewModel.currentColor)
     }
 }
 
@@ -36,22 +43,5 @@ struct SaveFlagButton: View {
     
     func saveFlag() {
         print("foo")
-    }
-}
-
-struct FlagCreationZoneView: View {
-    @EnvironmentObject private var currentColor: CurrentColor
-    var body: some View {
-        Rectangle()
-            .frame(width: 300, height: 150, alignment: .center)
-            .foregroundColor(currentColor.currentColor)
-            
-    }
-}
-
-
-struct FlagStackView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlagStackView()
     }
 }
