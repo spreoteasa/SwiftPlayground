@@ -40,9 +40,11 @@ struct SaveFlagButton: View {
 }
 
 struct FlagCreationZoneView: View {
+    @EnvironmentObject private var currentColor: CurrentColor
     var body: some View {
         Rectangle()
             .frame(width: 300, height: 150, alignment: .center)
+            .foregroundColor(currentColor.currentColor)
             
     }
 }

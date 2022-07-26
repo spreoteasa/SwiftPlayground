@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DesignerView: View {
 //    @Binding var currentColor: Color
-    @StateObject private var currentColor = CurrentColor()
+    @EnvironmentObject private var currentColor:CurrentColor
     var body: some View {
         ZStack {
             MainBackground()
@@ -30,7 +30,7 @@ struct DesignerView: View {
 
 struct PickerSection: View {
 //    @Binding var currentColor: Color
-    @EnvironmentObject private var currentColor: CurrentColor
+//    @EnvironmentObject private var currentColor: CurrentColor
     var body: some View {
         HStack{
             

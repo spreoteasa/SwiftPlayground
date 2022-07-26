@@ -8,10 +8,11 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var currentColor = CurrentColor()
     var body: some View {
         VStack{
-            FlagStackView()
-            DesignerView()
+            FlagStackView().environmentObject(currentColor)
+            DesignerView().environmentObject(currentColor)
                 .ignoresSafeArea()
         }
     }
