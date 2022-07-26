@@ -16,7 +16,7 @@ struct FlagStackView: View {
             }
             HStack{
                 Spacer()
-            FlagCreationZoneView()
+                FlagCreationZoneView()
                 Spacer()
             }
             Spacer()

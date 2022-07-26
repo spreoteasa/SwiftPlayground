@@ -7,19 +7,36 @@
 
 import SwiftUI
 
+class MyModel: ObservableObject {
+    @Published var anytext = Color.green
+}
+
 struct PreviewPlaygroundView: View {
-    @State var color: Color = Color.pink
+    @StateObject private var model = MyModel()
     var body: some View {
-        
-        ColorPicker("", selection: $color)
-            .opacity(1)
-            .scaleEffect(CGSize(width:6, height: 6))
-            .labelsHidden()
+        TestingSmthView().environmentObject(model)
             
         
     }
 }
 
+struct TestingSmthView: View {
+    @EnvironmentObject private var model: MyModel
+    var body: some View{
+        VStack{
+            ColorPicker("Write text", selection: $model.anytext)
+            TestingSmthInTheRectangle()
+        }
+    }
+}
+
+struct TestingSmthInTheRectangle: View {
+    @EnvironmentObject private var model: MyModel
+    var body: some View {
+        Text("ce ai fratelli")
+            .foregroundColor(model.anytext)
+    }
+}
 
 
 struct PreviewPlaygroundView_Previews: PreviewProvider {
