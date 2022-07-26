@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct DesignerView: View {
+    @State var currentColor: Color = Color.green
     var body: some View {
         ZStack {
             MainBackground()
+                .background(currentColor)
             VStack(spacing: 20){
                 ZStack{
                     
                     BackgroundRectangle()
-                    PickerSection()
+                    PickerSection(currentColor: currentColor)
                 }
                 CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
                 AddSubsectionSection()
@@ -26,6 +28,7 @@ struct DesignerView: View {
 }
 
 struct PickerSection: View {
+    @State var currentColor = Color.green
     var body: some View {
         HStack{
             
@@ -33,7 +36,7 @@ struct PickerSection: View {
             VStack{
                 Text("PICK COLOR")
                     .fontWeight(.semibold)
-                ColorPickerButton()
+                ColorPickerButton(currentColor: currentColor)
             }
             Spacer()
             VStack{
@@ -69,11 +72,14 @@ struct EmblemPickerButton: View {
 
 
 struct ColorPickerButton: View {
+    @State var currentColor = Color.green
     var body: some View {
-        Button("") {}
+        ColorPicker("Color picker", selection: $currentColor)
             .frame(width: 100, height: 25)
-            .background(Color("LightGray"))
+//            .background(Color("LightGray"))
             .clipShape(RoundedRectangle(cornerRadius: 2))
+            .labelsHidden()
+            
     }
 }
 
