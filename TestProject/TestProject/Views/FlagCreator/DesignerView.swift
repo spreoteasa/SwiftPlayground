@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DesignerView: View {
 //    @Binding var currentColor: Color
+    @StateObject private var currentColor = CurrentColor()
     var body: some View {
         ZStack {
             MainBackground()
@@ -17,7 +18,7 @@ struct DesignerView: View {
                 ZStack{
                     
                     BackgroundRectangle()
-                    PickerSection()
+                    PickerSection().environmentObject(currentColor)
                 }
                 CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
                 AddSubsectionSection()
@@ -29,6 +30,7 @@ struct DesignerView: View {
 
 struct PickerSection: View {
 //    @Binding var currentColor: Color
+    @EnvironmentObject private var currentColor: CurrentColor
     var body: some View {
         HStack{
             
@@ -72,11 +74,12 @@ struct EmblemPickerButton: View {
 
 
 struct ColorPickerButton: View {
-    @State var currentColor:Color = .green
+//    @State var currentColor:Color = .green
+    @EnvironmentObject private var currentColor: CurrentColor
     var body: some View {
-        ColorPicker("Color picker", selection: $currentColor)
+        ColorPicker("Color picker", selection: $currentColor.currentColor)
             .frame(width: 100, height: 25)
-//            .background(Color("LightGray"))
+//            .background(currentColor.currentColor)
             .clipShape(RoundedRectangle(cornerRadius: 2))
             .labelsHidden()
             

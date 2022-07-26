@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 
-class CurrentColor : ObservableObject {
+class CurrentColor: ObservableObject {
     @Published var currentColor = Color.green
-    
-    func set(newColor: Color) {
-        self.currentColor = newColor
-    }
 }
