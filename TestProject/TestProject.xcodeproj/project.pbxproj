@@ -10,6 +10,7 @@
 		03D51FE9288FE29B00372907 /* DesignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FE8288FE29B00372907 /* DesignerView.swift */; };
 		03D51FEB288FF97200372907 /* PreviewPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */; };
 		03D51FEE28900DD600372907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FED28900DD600372907 /* ViewModel.swift */; };
+		03F5E1F22891545300A26207 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5E1F12891545300A26207 /* Tree.swift */; };
 		F9060BC1288FD39B00E73211 /* FlagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9060BC0288FD39B00E73211 /* FlagStackView.swift */; };
 		F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5A287D5C470045F788 /* TestProjectApp.swift */; };
 		F9751A5D287D5C470045F788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5C287D5C470045F788 /* ContentView.swift */; };
@@ -47,6 +48,7 @@
 		03D51FE8288FE29B00372907 /* DesignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerView.swift; sourceTree = "<group>"; };
 		03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlaygroundView.swift; sourceTree = "<group>"; };
 		03D51FED28900DD600372907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		03F5E1F12891545300A26207 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		F9060BC0288FD39B00E73211 /* FlagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagStackView.swift; sourceTree = "<group>"; };
 		F9751A57287D5C470045F788 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A5A287D5C470045F788 /* TestProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectApp.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		03F5E1F02891544200A26207 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				03F5E1F12891545300A26207 /* Tree.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
 		F9060BBE288FD33900E73211 /* FlagViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		F9751A59287D5C470045F788 /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				03F5E1F02891544200A26207 /* DataStructures */,
 				03D51FEC28900D9700372907 /* Model */,
 				F97E3737288E804D0031D192 /* Views */,
 				F9870CAB28894ED9007C55DD /* start.txt */,
@@ -329,6 +340,7 @@
 				F9E9C141288EA7A3003E0A06 /* AmericaFlagView.swift in Sources */,
 				03D51FE9288FE29B00372907 /* DesignerView.swift in Sources */,
 				F9E9C149288EC193003E0A06 /* GreeceFlagView.swift in Sources */,
+				03F5E1F22891545300A26207 /* Tree.swift in Sources */,
 				F9E9C147288EB950003E0A06 /* SwitzerlandFlagView.swift in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
 			);
