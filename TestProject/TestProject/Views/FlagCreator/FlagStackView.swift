@@ -17,7 +17,7 @@ struct FlagStackView: View {
             }
             HStack{
                 Spacer()
-               flagView
+                viewModel.getWholeView()
                 Spacer()
             }
             Spacer()
@@ -31,6 +31,8 @@ struct FlagStackView: View {
             .foregroundColor(viewModel.currentColor)
     }
 }
+
+
 
 struct SaveFlagButton: View {
     var body: some View {

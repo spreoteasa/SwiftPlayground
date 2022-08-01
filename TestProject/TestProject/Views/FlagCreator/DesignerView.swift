@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DesignerView: View {
-    @Binding var currentColor:Color
+    @ObservedObject var viewModel: ViewModel
     var body: some View {
         ZStack {
             MainBackground()
@@ -17,11 +17,56 @@ struct DesignerView: View {
                 ZStack{
                     
                     BackgroundRectangle()
-                    PickerSection(currentColor: $currentColor)
+                    PickerSection(currentColor: $viewModel.currentColor)
                 }
-                CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
-                AddSubsectionSection()
-                CustomButton(backgroundColor: "LightGreen", buttonText: "Commit Section")
+//                CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
+                Button {
+//                    self.viewModel.treeStructure.add(newNode: <#T##Node#>)
+                    print("Add Stripe")
+                    switch self.viewModel.chosenType {
+                    case .horizontal:
+                        print("Add H")
+                        self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
+                            HStack {
+                                self.viewModel.currentColor
+                            }
+                        ), parent: self.viewModel.treeStructure.currentNode))
+                    case .vertical:
+                        print("Add V")
+                        self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
+                            VStack {
+                                self.viewModel.currentColor
+                            }
+                        ), parent: self.viewModel.treeStructure.currentNode))
+                    }
+//                    self.viewModel.treeStructure.add(newNode: Node(value: AnyView, parent: <#T##Node?#>))
+                }
+            label: {
+                Text("Add Stripe")
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .font(.custom("SF Pro Text", fixedSize: 24))
+            }
+                
+            .frame(width: 300, height: 50)
+            .background(Color("BlueFontColor"))
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+                AddSubsectionSection(viewModel: viewModel)
+//                CustomButton(backgroundColor: "LightGreen", buttonText: "Commit Section")
+                Button {
+//                    self.viewModel.treeStructure.add(newNode: <#T##Node#>)
+                    self.viewModel.treeStructure.commitSection()
+                }
+            label: {
+                Text("Commit Section")
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .font(.custom("SF Pro Text", fixedSize: 24))
+            }
+                
+            .frame(width: 300, height: 50)
+            .background(Color("LightGreen"))
+            .clipShape(RoundedRectangle(cornerRadius: 5))
             }
         }
     }
@@ -91,6 +136,29 @@ struct ColorPickerButton: View {
     }
 }
 
+struct AddStripeButton: View {
+    var backgroundColor: String = "BlueFontColor"
+    var buttonText: String = "Add Stripe"
+    var body: some View {
+        Button {
+            print("hehe")
+        }
+    label: {
+        Text(buttonText)
+            .foregroundColor(.white)
+            .fontWeight(.semibold)
+            .font(.custom("SF Pro Text", fixedSize: 24))
+    }
+        
+    .frame(width: 300, height: 50)
+    .background(Color(backgroundColor))
+    .clipShape(RoundedRectangle(cornerRadius: 5))
+        //    .shadow(color: .gray, radius: 3, x: 0, y: 0)
+        
+        
+    }
+}
+
 struct CustomButton: View {
     var backgroundColor: String = ""
     var buttonText: String = ""
@@ -115,6 +183,7 @@ struct CustomButton: View {
 }
 
 struct AddSubsectionSection: View {
+    @ObservedObject var viewModel: ViewModel
     var body: some View {
         ZStack{
             Rectangle()
@@ -129,7 +198,9 @@ struct AddSubsectionSection: View {
                 
                 HStack{
                     Spacer()
-                    Button { }
+                    Button {
+                        self.viewModel.chosenType = .horizontal
+                    }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")
                         .resizable()
@@ -146,7 +217,10 @@ struct AddSubsectionSection: View {
                         .rotationEffect(.degrees(173))
                         .foregroundColor(Color("LightGray"))
                     Spacer()
-                    Button { }
+                    Button {
+                        self.viewModel.chosenType = .vertical
+                        print(self.viewModel.treeStructure.root.children.count)
+                    }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")
                         .resizable()
@@ -176,9 +250,9 @@ struct MainBackground: View {
     }
 }
 
-
-struct DesignerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DesignerView(currentColor: .constant(.green))
-    }
-}
+//
+//struct DesignerView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        DesignerView(currentColor: .constant(.green))
+//    }
+//}

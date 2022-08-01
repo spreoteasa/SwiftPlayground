@@ -9,5 +9,15 @@ import Foundation
 import SwiftUI
 
 class ViewModel: ObservableObject {
-    @Published var currentColor = Color.green
+    @Published var currentColor = Color.gray
+    @Published var treeStructure: Tree
+    @Published var chosenType: StripeType = .horizontal
+    
+    init(tree: Tree) {
+        self.treeStructure = tree
+    }
+    
+    func getWholeView() -> some View {
+        self.treeStructure.getView()
+    }
 }
