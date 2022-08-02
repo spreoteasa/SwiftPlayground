@@ -30,14 +30,14 @@ struct DesignerView: View {
                             HStack {
                                 self.viewModel.currentColor
                             }
-                        ), parent: self.viewModel.treeStructure.currentNode))
+                        ), parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
                     case .vertical:
                         print("Add V")
                         self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
                             VStack {
                                 self.viewModel.currentColor
                             }
-                        ), parent: self.viewModel.treeStructure.currentNode))
+                        ), parent: self.viewModel.treeStructure.currentNode,type: .vertical))
                     }
 //                    self.viewModel.treeStructure.add(newNode: Node(value: AnyView, parent: <#T##Node?#>))
                 }

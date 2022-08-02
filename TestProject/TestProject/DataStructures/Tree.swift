@@ -8,94 +8,6 @@
 import Foundation
 import SwiftUI
 
-//
-//class Node {
-//    var value: String = ""
-//    var parent: Node? = nil
-//    var children: [Node] = []
-//
-//    init(value: String) {
-//        self.value = value
-//    }
-//}
-//
-//class Tree {
-//    var root: Node
-//    var currentNode: Node
-//
-//    init(root: Node) {
-//        self.root = root
-//        self.root.parent = nil
-//        self.currentNode = root
-//    }
-//
-//    func insert(node: Node) {
-//        currentNode.children.insert(node, at: currentNode.children.count)
-//    }
-//
-//    func goUp() {
-//        guard self.currentNode.parent == nil else{
-//            self.currentNode = self.currentNode.parent!
-//            return
-//        }
-//        self.currentNode = root
-//    }
-//
-//    func goDown() {
-//        if self.currentNode.children.count != 0 {
-//            self.currentNode = self.currentNode.children[0]
-//        }
-//    }
-//
-//}
-//
-//var root = Node(value: "VStack")
-//
-//var tree = Tree(root: root)
-//var newNode = Node(value: "HStack")
-//
-//
-//struct SomeView: View {
-//    var root = Node(value: "VStack")
-//
-//    var tree:Tree
-//    var newNode = Node(value: "HStack")
-//    var array = ["HStack","HStack","VStack","VStack","HStack"].shuffled()
-//    var body: some View {
-//        VStack{
-//            ForEach((0..<array.count), id: \.self) {
-//                if array[$0] == "HStack"{
-//
-//                    HStack {
-//                        Color.blue
-//                        Color.mint
-//                        Color.green
-//                        Color.cyan
-//                    }
-//                }
-//                else {
-//                    VStack {
-//                        Color.yellow
-//                        Color.red
-//                        Color.pink
-//                        Color.brown
-//                    }
-//                }
-//            }
-//            Button("dada") {
-//                print("ksfjngs")
-//            }
-//        }
-//    }
-//
-//    init() {
-//
-//        self.tree = Tree(root: self.root)
-//        tree.insert(node: newNode)
-//        print(tree)
-//    }
-//}
-
 struct TreeView: View {
     var body: some View {
         ZStack {
@@ -107,21 +19,43 @@ struct TreeView: View {
 class Node {
     var ID = UUID()
     var value: AnyView
+    var type: StripeType = .horizontal
     weak var parent: Node?
     var children: [Node] = []
     
-    init(value: AnyView, parent: Node?) {
+    init(value: AnyView, parent: Node?,type: StripeType) {
         self.value = value
         self.parent = parent
+        self.type = type
     }
     
     func add(child: Node) {
         self.children.append(child)
     }
-    
+    @ViewBuilder
     func getView() -> some View {
-        ForEach(children, id:\.ID) {child in
-            child.value
+        if self.children.count == 0 {
+            AnyView(
+            self.value
+            )
+        }
+        else {
+            switch self.type {
+            case .horizontal:
+                AnyView(
+                HStack {
+                    ForEach(children, id:\.ID) { child in
+                        child.getView()
+                    }
+                })
+            case .vertical:
+                AnyView(
+                VStack {
+                    ForEach(children, id:\.ID) { child in
+                        child.getView()
+                    }
+                })
+            }
         }
     }
 }
@@ -142,12 +76,9 @@ class Tree {
         self.lastAdded = newNode
         self.lastAdded.parent = currentNode
     }
+    @ViewBuilder
     func getView() -> some View {
-        print("Aicea")
-        return ForEach(root.children, id:\.ID) {child in
-            child.value
-            child.getView()
-        }
+        root.getView()
     }
     
     func commitSection() {
