@@ -8,7 +8,7 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ViewModel(tree: Tree(root: Node(value: AnyView(VStack{}), parent: nil)))
+    @StateObject var viewModel = ViewModel(tree: Tree(root: Node(value: AnyView(VStack{}), parent: nil,type: .vertical)))
     var body: some View {
         VStack{
             FlagStackView(viewModel: viewModel)
