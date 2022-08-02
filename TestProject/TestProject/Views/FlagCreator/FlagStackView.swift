@@ -13,7 +13,7 @@ struct FlagStackView: View {
         VStack(alignment: .trailing, spacing: 40) {
             HStack{
                 Spacer()
-                SaveFlagButton()
+                SaveFlagButton(viewModelTree: $viewModel.treeStructure)
             }
             HStack{
                 Spacer()
@@ -33,9 +33,27 @@ struct FlagStackView: View {
     }
 }
 
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = controller.view.intrinsicContentSize
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
+}
+
 
 
 struct SaveFlagButton: View {
+    @Binding var viewModelTree: Tree
     var body: some View {
         Button("Save Flag", action: saveFlag)
             .frame(width: 90, height: 40)
@@ -45,6 +63,10 @@ struct SaveFlagButton: View {
     }
     
     func saveFlag() {
-        print("foo")
+        let lmao = viewModelTree.getView()
+        let image = lmao.snapshot()
+//        let image = viewModelTree.getView().snapshot()
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
     }
 }

@@ -17,7 +17,7 @@ struct DesignerView: View {
                 ZStack{
                     
                     BackgroundRectangle()
-                    PickerSection(currentColor: $viewModel.currentColor)
+                    PickerSection(currentColor: $viewModel.currentColor, isPresented: $viewModel.isPresented, currentIcon: $viewModel.currentIcon)
                 }
 
                 Button {
@@ -28,14 +28,26 @@ struct DesignerView: View {
                         print("Add H")
                         self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
                             HStack {
+                                ZStack {
+                                    
                                 self.viewModel.currentColor
+                                    Image(systemName: self.viewModel.currentIcon)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .opacity(0.3)
+                                }
                             }
                         ), parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
                     case .vertical:
                         print("Add V")
                         self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
                             VStack {
+                                ZStack {
+                                    
                                 self.viewModel.currentColor
+                                    Image(systemName: self.viewModel.currentIcon)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .opacity(0.3)
+                                }
                             }
                         ), parent: self.viewModel.treeStructure.currentNode,type: .vertical))
                     }
@@ -63,7 +75,20 @@ struct DesignerView: View {
                     .fontWeight(.semibold)
                     .font(.custom("SF Pro Text", fixedSize: 24))
             }
+            .frame(width: 300, height: 50)
+            .background(Color("LightGreen"))
+            .clipShape(RoundedRectangle(cornerRadius: 5))
                 
+                Button {
+
+                    self.viewModel.treeStructure.goUp()
+                }
+            label: {
+                Text("Pop Back")
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .font(.custom("SF Pro Text", fixedSize: 24))
+            }
             .frame(width: 300, height: 50)
             .background(Color("LightGreen"))
             .clipShape(RoundedRectangle(cornerRadius: 5))
@@ -74,10 +99,10 @@ struct DesignerView: View {
 
 struct PickerSection: View {
     @Binding var currentColor: Color
-    
+    @Binding var isPresented: Bool
+    @Binding var currentIcon: String
     var body: some View {
         HStack{
-            
             Spacer()
             VStack{
                 Text("PICK COLOR")
@@ -87,14 +112,23 @@ struct PickerSection: View {
                 
                     .clipShape(RoundedRectangle(cornerRadius: 2))
                     .labelsHidden()
-                
-                
             }
             Spacer()
             VStack{
                 Text("PICK EMBLEM")
                     .fontWeight(.semibold)
-                EmblemPickerButton()
+                Button {
+                    isPresented = true
+                    print(self.currentIcon)
+                }
+            label: {
+                Image(systemName: "photo.on.rectangle")
+            }.frame(width: 100, height: 25)
+                    .foregroundColor(Color("LightGray"))
+            }
+            .sheet(isPresented: $isPresented) {
+                SFSymbolsPicker(icon: $currentIcon)
+                
             }
             Spacer()
             
@@ -111,17 +145,6 @@ struct BackgroundRectangle: View {
             .shadow(color: .gray, radius: 3, x: 0, y: 0)
     }
 }
-
-struct EmblemPickerButton: View {
-    var body: some View {
-        Button {}
-    label: {
-        Image(systemName: "photo.on.rectangle")
-    }.frame(width: 100, height: 25)
-            .foregroundColor(Color("LightGray"))
-    }
-}
-
 
 struct ColorPickerButton: View {
     @EnvironmentObject private var currentColor: ViewModel

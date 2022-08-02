@@ -40,31 +40,31 @@ class Node {
                 AnyView(
                     HStack(spacing: 0) {
                         self.value
-                })
+                    })
             case .vertical:
                 AnyView(
                     VStack(spacing: 0) {
                         self.value
-                })
+                    })
             }
-           
+            
         }
         else {
             switch self.type {
             case .horizontal:
                 AnyView(
                     HStack(spacing: 0) {
-                    ForEach(children, id:\.ID) { child in
-                        child.getView()
-                    }
-                })
+                        ForEach(children, id:\.ID) { child in
+                            child.getView()
+                        }
+                    })
             case .vertical:
                 AnyView(
                     VStack(spacing: 0) {
-                    ForEach(children, id:\.ID) { child in
-                        child.getView()
-                    }
-                })
+                        ForEach(children, id:\.ID) { child in
+                            child.getView()
+                        }
+                    })
             }
         }
     }
@@ -84,9 +84,10 @@ class Tree {
     
     func add(newNode: Node) {
         if rootWasPopulated {
-        self.currentNode.children.insert(newNode, at: currentNode.children.count)
-        self.lastAdded = newNode
-        self.lastAdded.parent = currentNode
+            self.currentNode.children.insert(newNode, at: currentNode.children.count)
+            self.currentNode.value
+            self.lastAdded = newNode
+            self.lastAdded.parent = currentNode
         }
         else {
             root = newNode
@@ -103,6 +104,12 @@ class Tree {
     func commitSection() {
         self.currentNode = self.lastAdded
         print("Went down")
+    }
+    
+    func goUp() {
+        if self.currentNode.ID != self.root.ID {
+            self.currentNode = self.currentNode.parent!
+        }
     }
 }
 
