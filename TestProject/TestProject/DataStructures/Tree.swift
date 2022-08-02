@@ -35,22 +35,32 @@ class Node {
     @ViewBuilder
     func getView() -> some View {
         if self.children.count == 0 {
-            AnyView(
-            self.value
-            )
+            switch self.type {
+            case .horizontal:
+                AnyView(
+                    HStack(spacing: 0) {
+                        self.value
+                })
+            case .vertical:
+                AnyView(
+                    VStack(spacing: 0) {
+                        self.value
+                })
+            }
+           
         }
         else {
             switch self.type {
             case .horizontal:
                 AnyView(
-                HStack {
+                    HStack(spacing: 0) {
                     ForEach(children, id:\.ID) { child in
                         child.getView()
                     }
                 })
             case .vertical:
                 AnyView(
-                VStack {
+                    VStack(spacing: 0) {
                     ForEach(children, id:\.ID) { child in
                         child.getView()
                     }
@@ -64,6 +74,7 @@ class Tree {
     var root: Node
     var currentNode: Node
     var lastAdded: Node
+    var rootWasPopulated = false
     
     init(root: Node) {
         self.root = root
@@ -72,9 +83,17 @@ class Tree {
     }
     
     func add(newNode: Node) {
+        if rootWasPopulated {
         self.currentNode.children.insert(newNode, at: currentNode.children.count)
         self.lastAdded = newNode
         self.lastAdded.parent = currentNode
+        }
+        else {
+            root = newNode
+            self.lastAdded = root
+            self.rootWasPopulated = true
+            self.currentNode = root
+        }
     }
     @ViewBuilder
     func getView() -> some View {

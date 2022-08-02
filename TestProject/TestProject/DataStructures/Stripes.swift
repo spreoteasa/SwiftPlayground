@@ -12,27 +12,4 @@ enum StripeType {
     case vertical
 }
 
-struct SimpleStripe: View {
-    var color = Color.red
-    var body: some View {
-        color
-    }
-}
 
-struct StackStripe: View {
-    var stripe: SimpleStripe
-    var type: StripeType = .horizontal
-    
-    var body: some View {
-        switch self.type{
-        case .horizontal:
-            HStack {
-                stripe
-            }
-        case .vertical:
-            VStack {
-                stripe
-            }
-        }
-    }
-}

@@ -23,6 +23,7 @@ struct FlagStackView: View {
             Spacer()
         }
         .frame(height: 300)
+        
     }
     
     var flagView: some View {

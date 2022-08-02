@@ -19,9 +19,9 @@ struct DesignerView: View {
                     BackgroundRectangle()
                     PickerSection(currentColor: $viewModel.currentColor)
                 }
-//                CustomButton(backgroundColor: "BlueFontColor",buttonText: "Add Stripe")
+
                 Button {
-//                    self.viewModel.treeStructure.add(newNode: <#T##Node#>)
+
                     print("Add Stripe")
                     switch self.viewModel.chosenType {
                     case .horizontal:
@@ -39,7 +39,7 @@ struct DesignerView: View {
                             }
                         ), parent: self.viewModel.treeStructure.currentNode,type: .vertical))
                     }
-//                    self.viewModel.treeStructure.add(newNode: Node(value: AnyView, parent: <#T##Node?#>))
+
                 }
             label: {
                 Text("Add Stripe")
@@ -52,9 +52,9 @@ struct DesignerView: View {
             .background(Color("BlueFontColor"))
             .clipShape(RoundedRectangle(cornerRadius: 5))
                 AddSubsectionSection(viewModel: viewModel)
-//                CustomButton(backgroundColor: "LightGreen", buttonText: "Commit Section")
+
                 Button {
-//                    self.viewModel.treeStructure.add(newNode: <#T##Node#>)
+
                     self.viewModel.treeStructure.commitSection()
                 }
             label: {
@@ -74,7 +74,7 @@ struct DesignerView: View {
 
 struct PickerSection: View {
     @Binding var currentColor: Color
-    //    @EnvironmentObject private var currentColor: CurrentColor
+    
     var body: some View {
         HStack{
             
@@ -84,7 +84,7 @@ struct PickerSection: View {
                     .fontWeight(.semibold)
                 ColorPicker("Color picker", selection: $currentColor)
                     .frame(width: 100, height: 25)
-                //            .background(currentColor.currentColor)
+                
                     .clipShape(RoundedRectangle(cornerRadius: 2))
                     .labelsHidden()
                 
@@ -124,12 +124,10 @@ struct EmblemPickerButton: View {
 
 
 struct ColorPickerButton: View {
-    //    @State var currentColor:Color = .green
     @EnvironmentObject private var currentColor: ViewModel
     var body: some View {
         ColorPicker("Color picker", selection: $currentColor.currentColor)
             .frame(width: 100, height: 25)
-        //            .background(currentColor.currentColor)
             .clipShape(RoundedRectangle(cornerRadius: 2))
             .labelsHidden()
         
@@ -153,7 +151,6 @@ struct AddStripeButton: View {
     .frame(width: 300, height: 50)
     .background(Color(backgroundColor))
     .clipShape(RoundedRectangle(cornerRadius: 5))
-        //    .shadow(color: .gray, radius: 3, x: 0, y: 0)
         
         
     }
@@ -176,7 +173,6 @@ struct CustomButton: View {
     .frame(width: 300, height: 50)
     .background(Color(backgroundColor))
     .clipShape(RoundedRectangle(cornerRadius: 5))
-        //    .shadow(color: .gray, radius: 3, x: 0, y: 0)
         
         
     }
@@ -250,9 +246,3 @@ struct MainBackground: View {
     }
 }
 
-//
-//struct DesignerView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        DesignerView(currentColor: .constant(.green))
-//    }
-//}
