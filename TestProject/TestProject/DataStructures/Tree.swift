@@ -18,12 +18,12 @@ struct TreeView: View {
 
 class Node {
     var ID = UUID()
-    var value: AnyView
+    var value: Color = .red
     var type: StripeType = .horizontal
     weak var parent: Node?
     var children: [Node] = []
     
-    init(value: AnyView, parent: Node?,type: StripeType) {
+    init(value: Color, parent: Node?,type: StripeType) {
         self.value = value
         self.parent = parent
         self.type = type
@@ -32,42 +32,7 @@ class Node {
     func add(child: Node) {
         self.children.append(child)
     }
-    @ViewBuilder
-    func getView() -> some View {
-        if self.children.count == 0 {
-            switch self.type {
-            case .horizontal:
-                AnyView(
-                    HStack(spacing: 0) {
-                        self.value
-                    })
-            case .vertical:
-                AnyView(
-                    VStack(spacing: 0) {
-                        self.value
-                    })
-            }
-            
-        }
-        else {
-            switch self.type {
-            case .horizontal:
-                AnyView(
-                    HStack(spacing: 0) {
-                        ForEach(children, id:\.ID) { child in
-                            child.getView()
-                        }
-                    })
-            case .vertical:
-                AnyView(
-                    VStack(spacing: 0) {
-                        ForEach(children, id:\.ID) { child in
-                            child.getView()
-                        }
-                    })
-            }
-        }
-    }
+    
 }
 
 class Tree {
@@ -85,7 +50,6 @@ class Tree {
     func add(newNode: Node) {
         if rootWasPopulated {
             self.currentNode.children.insert(newNode, at: currentNode.children.count)
-            self.currentNode.value
             self.lastAdded = newNode
             self.lastAdded.parent = currentNode
         }
@@ -98,7 +62,44 @@ class Tree {
     }
     @ViewBuilder
     func getView() -> some View {
-        root.getView()
+        getNodeView(root)
+    }
+    
+    @ViewBuilder
+    func getNodeView(_ node: Node) -> some View {
+        if node.children.count == 0 {
+            switch node.type {
+            case .horizontal:
+                AnyView(
+                    HStack(spacing: 0) {
+                        node.value
+                    })
+            case .vertical:
+                AnyView(
+                    VStack(spacing: 0) {
+                        node.value
+                    })
+            }
+            
+        }
+        else {
+            switch node.type {
+            case .horizontal:
+                AnyView(
+                    HStack(spacing: 0) {
+                        ForEach(node.children, id:\.ID) { [self] child in
+                            getNodeView(child)
+                        }
+                    })
+            case .vertical:
+                AnyView(
+                    VStack(spacing: 0) {
+                        ForEach(node.children, id:\.ID) { [self] child in
+                            getNodeView(child)
+                        }
+                    })
+            }
+        }
     }
     
     func commitSection() {

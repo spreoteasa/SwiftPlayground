@@ -63,10 +63,10 @@ struct SaveFlagButton: View {
     }
     
     func saveFlag() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
         let lmao = viewModelTree.getView()
         let image = lmao.snapshot()
-//        let image = viewModelTree.getView().snapshot()
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-
+        }
     }
 }

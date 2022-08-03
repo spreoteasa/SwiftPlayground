@@ -26,30 +26,13 @@ struct DesignerView: View {
                     switch self.viewModel.chosenType {
                     case .horizontal:
                         print("Add H")
-                        self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
-                            HStack {
-                                ZStack {
-                                    
-                                self.viewModel.currentColor
-                                    Image(systemName: self.viewModel.currentIcon)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .opacity(0.3)
-                                }
-                            }
-                        ), parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
+                        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor
+                        , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
                     case .vertical:
                         print("Add V")
-                        self.viewModel.treeStructure.add(newNode: Node(value: AnyView(
-                            VStack {
-                                ZStack {
-                                    
-                                self.viewModel.currentColor
-                                    Image(systemName: self.viewModel.currentIcon)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .opacity(0.3)
-                                }
-                            }
-                        ), parent: self.viewModel.treeStructure.currentNode,type: .vertical))
+                        self.viewModel.treeStructure.add(newNode: Node(value:
+                            self.viewModel.currentColor
+                        , parent: self.viewModel.treeStructure.currentNode,type: .vertical))
                     }
 
                 }
@@ -94,6 +77,13 @@ struct DesignerView: View {
             .clipShape(RoundedRectangle(cornerRadius: 5))
             }
         }
+    }
+    func addHStack() {
+        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor, parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
+    }
+    
+    func addVStack() {
+        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor, parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
     }
 }
 
