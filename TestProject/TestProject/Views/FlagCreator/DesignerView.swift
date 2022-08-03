@@ -22,14 +22,14 @@ struct DesignerView: View {
 
                 Button {
 
-                    print("Add Stripe")
+//                    print("Add Stripe")
                     switch self.viewModel.chosenType {
                     case .horizontal:
-                        print("Add H")
+//                        print("Add H")
                         self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor
                         , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
                     case .vertical:
-                        print("Add V")
+//                        print("Add V")
                         self.viewModel.treeStructure.add(newNode: Node(value:
                             self.viewModel.currentColor
                         , parent: self.viewModel.treeStructure.currentNode,type: .vertical))
@@ -208,7 +208,11 @@ struct AddSubsectionSection: View {
                 HStack{
                     Spacer()
                     Button {
-                        self.viewModel.chosenType = .horizontal
+                        if self.viewModel.treeStructure.rootWasPopulated == false {
+                            self.viewModel.chosenType = .horizontal
+                            self.viewModel.treeStructure.rootWasPopulated = true
+                        }
+                        self.viewModel.chosenType = .vertical
                     }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")
@@ -227,8 +231,12 @@ struct AddSubsectionSection: View {
                         .foregroundColor(Color("LightGray"))
                     Spacer()
                     Button {
+                        if self.viewModel.treeStructure.rootWasPopulated == false {
+                            self.viewModel.chosenType = .vertical
+                            self.viewModel.treeStructure.rootWasPopulated = true
+                        }
                         self.viewModel.chosenType = .vertical
-                        print(self.viewModel.treeStructure.root.children.count)
+//                        print(self.viewModel.treeStructure.root.children.count)
                     }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")

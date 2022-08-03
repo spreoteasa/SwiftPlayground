@@ -13,7 +13,7 @@ struct FlagStackView: View {
         VStack(alignment: .trailing, spacing: 40) {
             HStack{
                 Spacer()
-                SaveFlagButton(viewModelTree: $viewModel.treeStructure)
+                SaveFlagButton(viewModel: viewModel)
             }
             HStack{
                 Spacer()
@@ -53,7 +53,7 @@ extension View {
 
 
 struct SaveFlagButton: View {
-    @Binding var viewModelTree: Tree
+    @ObservedObject var viewModel: ViewModel
     var body: some View {
         Button("Save Flag", action: saveFlag)
             .frame(width: 90, height: 40)
@@ -64,7 +64,7 @@ struct SaveFlagButton: View {
     
     func saveFlag() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-        let lmao = viewModelTree.getView()
+            let lmao = viewModel.getWholeView()
         let image = lmao.snapshot()
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }

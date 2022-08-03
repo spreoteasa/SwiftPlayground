@@ -12,8 +12,10 @@ struct ContentView: View {
     var body: some View {
         VStack{
             FlagStackView(viewModel: viewModel)
+                .id(UUID())
             DesignerView(viewModel: viewModel)
                 .ignoresSafeArea()
+                .id(UUID())
         }
     }
 }

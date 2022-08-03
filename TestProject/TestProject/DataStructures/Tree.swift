@@ -46,7 +46,6 @@ class Tree {
         self.currentNode = self.root
         self.lastAdded = self.root
     }
-    
     func add(newNode: Node) {
         if rootWasPopulated {
             self.currentNode.children.insert(newNode, at: currentNode.children.count)
@@ -55,65 +54,22 @@ class Tree {
         }
         else {
             root = newNode
+            root.type = newNode.type
             self.lastAdded = root
             self.rootWasPopulated = true
             self.currentNode = root
         }
     }
-    @ViewBuilder
-    func getView() -> some View {
-        getNodeView(root)
-    }
-    
-    @ViewBuilder
-    func getNodeView(_ node: Node) -> some View {
-        if node.children.count == 0 {
-            switch node.type {
-            case .horizontal:
-                AnyView(
-                    HStack(spacing: 0) {
-                        node.value
-                    })
-            case .vertical:
-                AnyView(
-                    VStack(spacing: 0) {
-                        node.value
-                    })
-            }
-            
-        }
-        else {
-            switch node.type {
-            case .horizontal:
-                AnyView(
-                    HStack(spacing: 0) {
-                        ForEach(node.children, id:\.ID) { [self] child in
-                            getNodeView(child)
-                        }
-                    })
-            case .vertical:
-                AnyView(
-                    VStack(spacing: 0) {
-                        ForEach(node.children, id:\.ID) { [self] child in
-                            getNodeView(child)
-                        }
-                    })
-            }
-        }
-    }
-    
     func commitSection() {
         self.currentNode = self.lastAdded
         print("Went down")
     }
-    
     func goUp() {
         if self.currentNode.ID != self.root.ID {
             self.currentNode = self.currentNode.parent!
         }
     }
 }
-
 
 struct TreeView_Previews: PreviewProvider {
     static var previews: some View {
