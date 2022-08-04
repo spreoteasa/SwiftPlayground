@@ -14,22 +14,31 @@ struct FlagStackView: View {
             HStack{
                 Spacer()
                 SaveFlagButton(viewModel: viewModel)
+                
             }
             HStack{
                 Spacer()
                 viewModel.getWholeView()
                 Spacer()
+            }.onTapGesture {
+                let image = self.snapshot()
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             }
             Spacer()
         }
         .frame(height: 300)
         
+        
     }
     
     var flagView: some View {
-         Rectangle()
+        Rectangle()
             .frame(width: 300, height: 150, alignment: .center)
             .foregroundColor(viewModel.currentColor)
+            .onTapGesture {
+                let image = self.snapshot()
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            }
     }
 }
 
@@ -37,16 +46,33 @@ extension View {
     func snapshot() -> UIImage {
         let controller = UIHostingController(rootView: self)
         let view = controller.view
-
+        
         let targetSize = controller.view.intrinsicContentSize
         view?.bounds = CGRect(origin: .zero, size: targetSize)
         view?.backgroundColor = .clear
-
+        
         let renderer = UIGraphicsImageRenderer(size: targetSize)
-
+        
         return renderer.image { _ in
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
+    }
+    
+    func asUiImage() -> UIImage {
+        var uiImage = UIImage(systemName: "exclamationmark.triangle.fill")!
+        let controller = UIHostingController(rootView: self)
+        
+        if let view = controller.view {
+            let contentSize = view.intrinsicContentSize
+            view.bounds = CGRect(origin: .zero, size: contentSize)
+            view.backgroundColor = .clear
+            
+            let renderer = UIGraphicsImageRenderer(size: contentSize)
+            uiImage = renderer.image { _ in
+                view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            }
+        }
+        return uiImage
     }
 }
 
@@ -63,10 +89,7 @@ struct SaveFlagButton: View {
     }
     
     func saveFlag() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            let lmao = viewModel.getWholeView()
-        let image = lmao.snapshot()
+        let image = viewModel.getWholeView().asUiImage()
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
     }
 }

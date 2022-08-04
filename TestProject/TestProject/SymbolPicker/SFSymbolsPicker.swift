@@ -12,7 +12,7 @@ struct SFSymbolsPicker: View {
     // MARK: - View properties
     @Environment(\.presentationMode) var presentationMode
     @Binding public var icon: String
-    let category: Category = .indices
+    let category: Category = .nature
 
     var body: some View {
         ScrollView {

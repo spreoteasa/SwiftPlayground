@@ -22,16 +22,12 @@ struct DesignerView: View {
 
                 Button {
 
-//                    print("Add Stripe")
                     switch self.viewModel.chosenType {
                     case .horizontal:
-//                        print("Add H")
-                        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor
+                        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
                         , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
                     case .vertical:
-//                        print("Add V")
-                        self.viewModel.treeStructure.add(newNode: Node(value:
-                            self.viewModel.currentColor
+                        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
                         , parent: self.viewModel.treeStructure.currentNode,type: .vertical))
                     }
 
@@ -79,12 +75,13 @@ struct DesignerView: View {
         }
     }
     func addHStack() {
-        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor, parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
+        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
+        , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
     }
     
     func addVStack() {
-        self.viewModel.treeStructure.add(newNode: Node(value: self.viewModel.currentColor, parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
-    }
+        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
+        , parent: self.viewModel.treeStructure.currentNode,type: .vertical))    }
 }
 
 struct PickerSection: View {
@@ -212,7 +209,7 @@ struct AddSubsectionSection: View {
                             self.viewModel.chosenType = .horizontal
                             self.viewModel.treeStructure.rootWasPopulated = true
                         }
-                        self.viewModel.chosenType = .vertical
+                        self.viewModel.chosenType = .horizontal
                     }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")

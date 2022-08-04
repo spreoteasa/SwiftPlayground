@@ -21,8 +21,26 @@ class ViewModel: ObservableObject {
         self.treeStructure = tree
     }
     
+    func add(newNode: Node) {
+        if self.treeStructure.rootWasPopulated {
+            self.treeStructure.currentNode.children.insert(newNode, at: self.treeStructure.currentNode.children.count)
+            self.treeStructure.lastAdded = newNode
+            self.treeStructure.lastAdded.parent = self.treeStructure.currentNode
+            self.objectWillChange.send()
+        }
+        else {
+            self.treeStructure.root = newNode
+            self.treeStructure.root.type = newNode.type
+            self.treeStructure.lastAdded = self.treeStructure.root
+            self.treeStructure.rootWasPopulated = true
+            self.treeStructure.currentNode = self.treeStructure.root
+            self.objectWillChange.send()
+        }
+        
+        
+    }
+    
     func getWholeView() -> some View {
-        self.playSounds("Imnul Romaniei (Romanian Anthem).mp3")
         return self.getNodeView(self.treeStructure.root)
     }
     
@@ -33,12 +51,20 @@ class ViewModel: ObservableObject {
             case .horizontal:
                 AnyView(
                     HStack(spacing: 0) {
-                        node.value
+                        ZStack {
+                            node.value
+                            Image(systemName: node.icon)
+                                .opacity(0.3)
+                        }.border(node.ID == treeStructure.currentNode.ID ? .black : .clear, width: 4)
                     })
             case .vertical:
                 AnyView(
                     VStack(spacing: 0) {
-                        node.value
+                        ZStack {
+                            node.value
+                            Image(systemName: node.icon)
+                                .opacity(0.3)
+                        }.border(node.ID == treeStructure.currentNode.ID ? .black : .clear, width: 4)
                     })
             }
             

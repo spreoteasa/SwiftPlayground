@@ -19,12 +19,14 @@ struct TreeView: View {
 class Node {
     var ID = UUID()
     var value: Color = .red
+    var icon: String = ""
     var type: StripeType = .horizontal
     weak var parent: Node?
     var children: [Node] = []
     
-    init(value: Color, parent: Node?,type: StripeType) {
+    init(value: Color, icon: String, parent: Node?, type: StripeType) {
         self.value = value
+        self.icon = icon
         self.parent = parent
         self.type = type
     }
@@ -59,9 +61,12 @@ class Tree {
             self.rootWasPopulated = true
             self.currentNode = root
         }
+        
+        
     }
     func commitSection() {
         self.currentNode = self.lastAdded
+        self.currentNode.ID = self.lastAdded.ID
         print("Went down")
     }
     func goUp() {
