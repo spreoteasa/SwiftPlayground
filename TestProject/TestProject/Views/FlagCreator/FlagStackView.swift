@@ -14,15 +14,18 @@ struct FlagStackView: View {
             HStack{
                 Spacer()
                 SaveFlagButton(viewModel: viewModel)
+                    .padding(10)
                 
             }
             HStack{
                 Spacer()
                 viewModel.getWholeView()
+                    .onTapGesture {
+                        let image = self.snapshot()
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    }
                 Spacer()
-            }.onTapGesture {
-                let image = self.snapshot()
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            
             }
             Spacer()
         }
