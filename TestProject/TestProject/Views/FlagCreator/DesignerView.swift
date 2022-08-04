@@ -10,78 +10,85 @@ import SwiftUI
 struct DesignerView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
-        ZStack {
-            MainBackground()
-                .background()
-            VStack(spacing: 20){
-                ZStack{
-                    
-                    BackgroundRectangle()
-                    PickerSection(currentColor: $viewModel.currentColor, isPresented: $viewModel.isPresented, currentIcon: $viewModel.currentIcon)
-                }
-
-                Button {
-
-                    switch self.viewModel.chosenType {
-                    case .horizontal:
-                        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
-                        , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
-                    case .vertical:
-                        self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
-                        , parent: self.viewModel.treeStructure.currentNode,type: .vertical))
+        GeometryReader { geometry in
+            
+            
+            ZStack {
+                MainBackground()
+                    .background()
+                VStack(spacing: 20){
+                    ZStack{
+                        
+                        BackgroundRectangle()
+                            .frame(width:geometry.size.width * 0.7, height: geometry.size.height * 0.2)
+                        PickerSection(currentColor: $viewModel.currentColor, isPresented: $viewModel.isPresented, currentIcon: $viewModel.currentIcon)
+                            
                     }
-
+                    
+                    Button {
+                        
+                        switch self.viewModel.chosenType {
+                        case .horizontal:
+                            self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
+                                                             , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
+                        case .vertical:
+                            self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
+                                                             , parent: self.viewModel.treeStructure.currentNode,type: .vertical))
+                        }
+                        
+                    }
+                label: {
+                    Text("Add Stripe")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .font(.custom("SF Pro Text", fixedSize: 24))
                 }
-            label: {
-                Text("Add Stripe")
-                    .foregroundColor(.white)
-                    .fontWeight(.semibold)
-                    .font(.custom("SF Pro Text", fixedSize: 24))
-            }
-                
-            .frame(width: 300, height: 50)
-            .background(Color("BlueFontColor"))
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-                AddSubsectionSection(viewModel: viewModel)
-
-                Button {
-
-                    self.viewModel.treeStructure.commitSection()
+                    
+                .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.1)
+                .background(Color("BlueFontColor"))
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                    AddSubsectionSection(viewModel: viewModel)
+                        .frame(width:geometry.size.width * 0.7, height: geometry.size.height * 0.2)
+                    
+                    Button {
+                        
+                        self.viewModel.treeStructure.commitSection()
+                    }
+                label: {
+                    Text("Commit Section")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .font(.custom("SF Pro Text", fixedSize: 24))
                 }
-            label: {
-                Text("Commit Section")
-                    .foregroundColor(.white)
-                    .fontWeight(.semibold)
-                    .font(.custom("SF Pro Text", fixedSize: 24))
-            }
-            .frame(width: 300, height: 50)
-            .background(Color("LightGreen"))
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-                
-                Button {
-
-                    self.viewModel.treeStructure.goUp()
+                .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.1)
+                .background(Color("LightGreen"))
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
+                    Button {
+                        
+                        self.viewModel.treeStructure.goUp()
+                    }
+                label: {
+                    Text("Pop Back")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .font(.custom("SF Pro Text", fixedSize: 24))
                 }
-            label: {
-                Text("Pop Back")
-                    .foregroundColor(.white)
-                    .fontWeight(.semibold)
-                    .font(.custom("SF Pro Text", fixedSize: 24))
-            }
-            .frame(width: 300, height: 50)
-            .background(Color("LightGreen"))
-            .clipShape(RoundedRectangle(cornerRadius: 5))
+                .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.1)
+                .background(Color("LightGreen"))
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                }
             }
         }
     }
     func addHStack() {
         self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
-        , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
+                                         , parent: self.viewModel.treeStructure.currentNode,type: .horizontal))
     }
     
     func addVStack() {
         self.viewModel.add(newNode: Node(value: self.viewModel.currentColor, icon: self.viewModel.currentIcon
-        , parent: self.viewModel.treeStructure.currentNode,type: .vertical))    }
+                                         , parent: self.viewModel.treeStructure.currentNode,type: .vertical))    }
 }
 
 struct PickerSection: View {
@@ -119,14 +126,14 @@ struct PickerSection: View {
             }
             Spacer()
             
-        }.frame(width:300, height: 100)
+        }
     }
 }
 
 struct BackgroundRectangle: View {
     var body: some View {
         Rectangle()
-            .frame(width: 300, height: 100)
+//            .frame(width: 300, height: 100)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .shadow(color: .gray, radius: 3, x: 0, y: 0)
@@ -193,7 +200,7 @@ struct AddSubsectionSection: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .frame(width: 300, height: 100)
+//                .frame(width: 300, height: 100)
                 .foregroundColor(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(color: .gray, radius: 3, x: 0, y: 0)
@@ -233,7 +240,7 @@ struct AddSubsectionSection: View {
                             self.viewModel.treeStructure.rootWasPopulated = true
                         }
                         self.viewModel.chosenType = .vertical
-//                        print(self.viewModel.treeStructure.root.children.count)
+                        //                        print(self.viewModel.treeStructure.root.children.count)
                     }
                 label: {
                     Image(systemName: "rectangle.grid.1x2.fill")

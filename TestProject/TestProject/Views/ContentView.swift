@@ -10,13 +10,17 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = ViewModel(tree: Tree(root: Node(value: Color.gray, icon: "", parent: nil,type: .horizontal)))
     var body: some View {
-        VStack{
-            FlagStackView(viewModel: viewModel)
-                .id(UUID())
-            DesignerView(viewModel: viewModel)
-                .ignoresSafeArea()
-                .id(UUID())
+        GeometryReader { geometry in
+            VStack{
+                FlagStackView(viewModel: viewModel)
+                    .frame(width: .infinity, height: geometry.size.height * 1/3)
+                    .id(UUID())
+                DesignerView(viewModel: viewModel)
+                    .frame(width: .infinity, height: geometry.size.height * 2/3)
+                    .id(UUID())
+            }
         }
+        
     }
 }
 
