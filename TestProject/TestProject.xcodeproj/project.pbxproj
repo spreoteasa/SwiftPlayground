@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036215FD289933A70065A2E7 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036215FC289933A70065A2E7 /* Symbols.swift */; };
+		036215FF289934090065A2E7 /* SFSymbolsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036215FE289934090065A2E7 /* SFSymbolsPicker.swift */; };
+		03638419289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */; };
+		03D51FE9288FE29B00372907 /* DesignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FE8288FE29B00372907 /* DesignerView.swift */; };
+		03D51FEB288FF97200372907 /* PreviewPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */; };
+		03D51FEE28900DD600372907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FED28900DD600372907 /* ViewModel.swift */; };
+		03F5E1F22891545300A26207 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5E1F12891545300A26207 /* Tree.swift */; };
+		03F5E1F42897E5E300A26207 /* Stripes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5E1F32897E5E300A26207 /* Stripes.swift */; };
+		F9060BC1288FD39B00E73211 /* FlagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9060BC0288FD39B00E73211 /* FlagStackView.swift */; };
 		F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5A287D5C470045F788 /* TestProjectApp.swift */; };
 		F9751A5D287D5C470045F788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A5C287D5C470045F788 /* ContentView.swift */; };
 		F9751A5F287D5C4D0045F788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9751A5E287D5C4D0045F788 /* Assets.xcassets */; };
@@ -14,6 +23,12 @@
 		F9751A6C287D5C4E0045F788 /* TestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A6B287D5C4E0045F788 /* TestProjectTests.swift */; };
 		F9751A76287D5C4E0045F788 /* TestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */; };
 		F9751A78287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */; };
+		F9870CAC28894ED9007C55DD /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = F9870CAB28894ED9007C55DD /* start.txt */; };
+		F9E9C141288EA7A3003E0A06 /* AmericaFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C140288EA7A3003E0A06 /* AmericaFlagView.swift */; };
+		F9E9C143288EAA44003E0A06 /* FlagCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */; };
+		F9E9C145288EAC76003E0A06 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C144288EAC76003E0A06 /* ButtonView.swift */; };
+		F9E9C147288EB950003E0A06 /* SwitzerlandFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */; };
+		F9E9C149288EC193003E0A06 /* GreeceFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		036215FC289933A70065A2E7 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		036215FE289934090065A2E7 /* SFSymbolsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsPicker.swift; sourceTree = "<group>"; };
+		03621600289952FA0065A2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Imnul Romaniei (Romanian Anthem).mp3"; path = "../../../../Downloads/Imnul Romaniei (Romanian Anthem).mp3"; sourceTree = "<group>"; };
+		03D51FE8288FE29B00372907 /* DesignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerView.swift; sourceTree = "<group>"; };
+		03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlaygroundView.swift; sourceTree = "<group>"; };
+		03D51FED28900DD600372907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		03F5E1F12891545300A26207 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		03F5E1F32897E5E300A26207 /* Stripes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stripes.swift; sourceTree = "<group>"; };
+		F9060BC0288FD39B00E73211 /* FlagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagStackView.swift; sourceTree = "<group>"; };
 		F9751A57287D5C470045F788 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A5A287D5C470045F788 /* TestProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectApp.swift; sourceTree = "<group>"; };
 		F9751A5C287D5C470045F788 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +69,12 @@
 		F9751A71287D5C4E0045F788 /* TestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITests.swift; sourceTree = "<group>"; };
 		F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F9870CAB28894ED9007C55DD /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		F9E9C140288EA7A3003E0A06 /* AmericaFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmericaFlagView.swift; sourceTree = "<group>"; };
+		F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagCreatorView.swift; sourceTree = "<group>"; };
+		F9E9C144288EAC76003E0A06 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitzerlandFlagView.swift; sourceTree = "<group>"; };
+		F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreeceFlagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +102,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036215FB289933960065A2E7 /* SymbolPicker */ = {
+			isa = PBXGroup;
+			children = (
+				036215FC289933A70065A2E7 /* Symbols.swift */,
+				036215FE289934090065A2E7 /* SFSymbolsPicker.swift */,
+			);
+			path = SymbolPicker;
+			sourceTree = "<group>";
+		};
+		03D51FEC28900D9700372907 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03D51FED28900DD600372907 /* ViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03F5E1F02891544200A26207 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				03F5E1F12891545300A26207 /* Tree.swift */,
+				03F5E1F32897E5E300A26207 /* Stripes.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		F9060BBE288FD33900E73211 /* FlagViews */ = {
+			isa = PBXGroup;
+			children = (
+				F9E9C148288EC193003E0A06 /* GreeceFlagView.swift */,
+				F9E9C140288EA7A3003E0A06 /* AmericaFlagView.swift */,
+				F9E9C142288EAA44003E0A06 /* FlagCreatorView.swift */,
+				F9E9C144288EAC76003E0A06 /* ButtonView.swift */,
+				F9E9C146288EB950003E0A06 /* SwitzerlandFlagView.swift */,
+			);
+			path = FlagViews;
+			sourceTree = "<group>";
+		};
+		F9060BBF288FD37300E73211 /* FlagCreator */ = {
+			isa = PBXGroup;
+			children = (
+				F9060BC0288FD39B00E73211 /* FlagStackView.swift */,
+				03D51FE8288FE29B00372907 /* DesignerView.swift */,
+				03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */,
+			);
+			path = FlagCreator;
+			sourceTree = "<group>";
+		};
 		F9751A4E287D5C470045F788 = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +173,15 @@
 		F9751A59287D5C470045F788 /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				03621600289952FA0065A2E7 /* Info.plist */,
+				036215FB289933960065A2E7 /* SymbolPicker */,
+				03F5E1F02891544200A26207 /* DataStructures */,
+				03D51FEC28900D9700372907 /* Model */,
+				F97E3737288E804D0031D192 /* Views */,
+				F9870CAB28894ED9007C55DD /* start.txt */,
 				F9751A5A287D5C470045F788 /* TestProjectApp.swift */,
-				F9751A5C287D5C470045F788 /* ContentView.swift */,
 				F9751A5E287D5C4D0045F788 /* Assets.xcassets */,
+				03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */,
 				F9751A60287D5C4D0045F788 /* Preview Content */,
 			);
 			path = TestProject;
@@ -125,6 +210,16 @@
 				F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */,
 			);
 			path = TestProjectUITests;
+			sourceTree = "<group>";
+		};
+		F97E3737288E804D0031D192 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9060BBF288FD37300E73211 /* FlagCreator */,
+				F9060BBE288FD33900E73211 /* FlagViews */,
+				F9751A5C287D5C470045F788 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9751A62287D5C4D0045F788 /* Preview Assets.xcassets in Resources */,
+				F9870CAC28894ED9007C55DD /* start.txt in Resources */,
+				03638419289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 in Resources */,
 				F9751A5F287D5C4D0045F788 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +355,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9751A5D287D5C470045F788 /* ContentView.swift in Sources */,
+				036215FF289934090065A2E7 /* SFSymbolsPicker.swift in Sources */,
+				F9060BC1288FD39B00E73211 /* FlagStackView.swift in Sources */,
+				03D51FEE28900DD600372907 /* ViewModel.swift in Sources */,
+				03F5E1F42897E5E300A26207 /* Stripes.swift in Sources */,
+				F9E9C143288EAA44003E0A06 /* FlagCreatorView.swift in Sources */,
+				F9E9C145288EAC76003E0A06 /* ButtonView.swift in Sources */,
+				03D51FEB288FF97200372907 /* PreviewPlaygroundView.swift in Sources */,
+				F9E9C141288EA7A3003E0A06 /* AmericaFlagView.swift in Sources */,
+				03D51FE9288FE29B00372907 /* DesignerView.swift in Sources */,
+				F9E9C149288EC193003E0A06 /* GreeceFlagView.swift in Sources */,
+				03F5E1F22891545300A26207 /* Tree.swift in Sources */,
+				F9E9C147288EB950003E0A06 /* SwitzerlandFlagView.swift in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
+				036215FD289933A70065A2E7 /* Symbols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,8 +527,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestProject/Preview Content\"";
+				DEVELOPMENT_TEAM = UC457FQPMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -445,8 +557,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestProject/Preview Content\"";
+				DEVELOPMENT_TEAM = UC457FQPMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
