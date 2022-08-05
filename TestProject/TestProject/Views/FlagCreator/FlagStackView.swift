@@ -10,39 +10,33 @@ import SwiftUI
 struct FlagStackView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
-        VStack(alignment: .trailing, spacing: 40) {
-            HStack{
-                Spacer()
-                SaveFlagButton(viewModel: viewModel)
-                    .padding(10)
+        GeometryReader { geometry in
+            VStack(alignment: .trailing, spacing: 20 ) {
+                HStack{
+                    Spacer()
+                    SaveFlagButton(viewModel: viewModel)
+                        .padding(10)
+                    
+                }.frame(height: geometry.size.height * 0.2)
+                HStack{
+                    Spacer()
+                    viewModel.getWholeView()
+                        .onTapGesture {
+                            let image = self.snapshot()
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        }
+                    Spacer()
                 
-            }
-            HStack{
+                }.frame(height: geometry.size.height * 0.7)
                 Spacer()
-                viewModel.getWholeView()
-                    .onTapGesture {
-                        let image = self.snapshot()
-                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                    }
-                Spacer()
-            
             }
-            Spacer()
+            .frame(height: geometry.size.height)
         }
-        .frame(height: 300)
+        
         
         
     }
     
-    var flagView: some View {
-        Rectangle()
-            .frame(width: 300, height: 150, alignment: .center)
-            .foregroundColor(viewModel.currentColor)
-            .onTapGesture {
-                let image = self.snapshot()
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            }
-    }
 }
 
 extension View {

@@ -13,10 +13,10 @@ struct ContentView: View {
         GeometryReader { geometry in
             VStack{
                 FlagStackView(viewModel: viewModel)
-                    .frame(width: .infinity, height: geometry.size.height * 1/3)
+                    .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.33, alignment: .center)
                     .id(UUID())
                 DesignerView(viewModel: viewModel)
-                    .frame(width: .infinity, height: geometry.size.height * 2/3)
+                    .frame(width: geometry.size.width, height: geometry.size.height * 0.66, alignment: .center)
                     .id(UUID())
             }
         }

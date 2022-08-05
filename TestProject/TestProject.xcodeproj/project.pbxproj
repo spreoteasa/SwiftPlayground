@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		036215FD289933A70065A2E7 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036215FC289933A70065A2E7 /* Symbols.swift */; };
 		036215FF289934090065A2E7 /* SFSymbolsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036215FE289934090065A2E7 /* SFSymbolsPicker.swift */; };
-		03638419289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */; };
 		03D51FE9288FE29B00372907 /* DesignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FE8288FE29B00372907 /* DesignerView.swift */; };
 		03D51FEB288FF97200372907 /* PreviewPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */; };
 		03D51FEE28900DD600372907 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D51FED28900DD600372907 /* ViewModel.swift */; };
@@ -52,7 +51,6 @@
 		036215FC289933A70065A2E7 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		036215FE289934090065A2E7 /* SFSymbolsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsPicker.swift; sourceTree = "<group>"; };
 		03621600289952FA0065A2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Imnul Romaniei (Romanian Anthem).mp3"; path = "../../../../Downloads/Imnul Romaniei (Romanian Anthem).mp3"; sourceTree = "<group>"; };
 		03D51FE8288FE29B00372907 /* DesignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerView.swift; sourceTree = "<group>"; };
 		03D51FEA288FF97100372907 /* PreviewPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlaygroundView.swift; sourceTree = "<group>"; };
 		03D51FED28900DD600372907 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				F9870CAB28894ED9007C55DD /* start.txt */,
 				F9751A5A287D5C470045F788 /* TestProjectApp.swift */,
 				F9751A5E287D5C4D0045F788 /* Assets.xcassets */,
-				03638418289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 */,
 				F9751A60287D5C4D0045F788 /* Preview Content */,
 			);
 			path = TestProject;
@@ -328,7 +325,6 @@
 			files = (
 				F9751A62287D5C4D0045F788 /* Preview Assets.xcassets in Resources */,
 				F9870CAC28894ED9007C55DD /* start.txt in Resources */,
-				03638419289A860F004B53C6 /* Imnul Romaniei (Romanian Anthem).mp3 in Resources */,
 				F9751A5F287D5C4D0045F788 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
