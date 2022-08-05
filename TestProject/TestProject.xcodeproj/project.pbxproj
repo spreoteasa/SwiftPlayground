@@ -14,7 +14,6 @@
 		F9751A6C287D5C4E0045F788 /* TestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A6B287D5C4E0045F788 /* TestProjectTests.swift */; };
 		F9751A76287D5C4E0045F788 /* TestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */; };
 		F9751A78287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */; };
-		F97E3739288E80610031D192 /* DragableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97E3738288E80610031D192 /* DragableCardView.swift */; };
 		F9870CAC28894ED9007C55DD /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = F9870CAB28894ED9007C55DD /* start.txt */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		F9751A71287D5C4E0045F788 /* TestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9751A75287D5C4E0045F788 /* TestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITests.swift; sourceTree = "<group>"; };
 		F9751A77287D5C4E0045F788 /* TestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F97E3738288E80610031D192 /* DragableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragableCardView.swift; sourceTree = "<group>"; };
 		F9870CAB28894ED9007C55DD /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				F9751A5C287D5C470045F788 /* ContentView.swift */,
-				F97E3738288E80610031D192 /* DragableCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F97E3739288E80610031D192 /* DragableCardView.swift in Sources */,
 				F9751A5D287D5C470045F788 /* ContentView.swift in Sources */,
 				F9751A5B287D5C470045F788 /* TestProjectApp.swift in Sources */,
 			);
